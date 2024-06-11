@@ -1,0 +1,74 @@
+global:
+  # How frequently to scrape targets by default.
+  scrape_interval: 5s
+  # How long until a scrape request times out.
+  scrape_timeout: 5s
+  # How frequently to evaluate rules.
+  evaluation_interval: 1m
+
+rule_files:
+  - "/etc/prometheus/alert.rules"
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093
+
+scrape_configs:
+  - job_name: "frontend"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:9099"]
+
+  # The job name assigned to scraped metrics by default.
+  - job_name: "catalogue"
+    # How frequently to scrape targets from this job.
+    # List of labeled statically configured targets for this job.
+    static_configs:
+      # The targets specified by the static config.
+      - targets: ["145.108.225.16:9091"]
+
+  - job_name: "payment"
+    static_configs:
+      - targets: ["145.108.225.16:9097"]
+
+  - job_name: "user"
+    static_configs:
+      - targets: ["145.108.225.16:9098"]
+
+  - job_name: "orders"
+    # The HTTP resource path on which to fetch metrics from targets.
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:9096"]
+
+  - job_name: "cart"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:9092"]
+
+  - job_name: "shipping"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:9094"]
+
+  - job_name: "queue-master"
+    metrics_path: "prometheus"
+    static_configs:
+      - targets: ["145.108.225.16:9095"]
+
+  - job_name: "node-exporter"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["nodeexporter:9100"]
+
+  - job_name: "scaphandre"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:8081"]
+
+  - job_name: "cadvisor"
+    metrics_path: "metrics"
+    static_configs:
+      - targets: ["145.108.225.16:8082"]

@@ -1,0 +1,228 @@
+version: "3.9"
+
+services:
+  front-end:
+    image: macsi21/front-end:1
+    restart: always
+    container_name: front-end    
+    ports:
+      - '9099:80'
+    hostname: front-end    
+    cap_drop:
+      - all
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETGID
+      - SETUID
+      - DAC_OVERRIDE
+    networks:
+      - marxact-dev-network
+
+
+  #SurveyService
+  surveyservice:
+    image: macsi21/surveyservice:2
+    restart: always
+    container_name: surveyservice
+    # build:
+    #   context: ./surveyservice
+    #   dockerfile: SurveyService/Dockerfile
+    depends_on:
+      - surveyservice-db
+    networks:
+      - marxact-dev-network
+    environment:
+      - DOTNET_ENVIRONMENT=${SURVEYSERVICE_DOTNET_ENVIRONMENT}
+      - ASPNETCORE_URLS=${SURVEYSERVICE_ASPNETCORE_URLS}
+      - SURVEYSERVICE_DB_HOST=${SURVEYSERVICE_DB_HOST}
+      - SURVEYSERVICE_DB_NAME=${SURVEYSERVICE_DB_NAME}
+      - SURVEYSERVICE_DB_USER=${SURVEYSERVICE_DB_USER}
+      - SURVEYSERVICE_DB_PASSWORD=${SURVEYSERVICE_DB_PASSWORD}
+      - SURVEYSERVICE_DB_PORT=${SURVEYSERVICE_DB_PORT}
+      - SURVEYSERVICE_SSL_MODE=${SURVEYSERVICE_SSL_MODE}
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=${SURVEYSERVICE_CERT_PATH}
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${SURVEYSERVICE_CERT_PASSWORD}
+    ports:
+      - "${SURVEYSERVICE_PORT}:${SURVEYSERVICE_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+  #SurveyService-db
+  surveyservice-db:
+    image: "postgres:13-alpine"
+    restart: always
+    container_name: surveyservice-db
+    networks:
+      - marxact-dev-network
+    environment:
+      - POSTGRES_DB=${SURVEYSERVICE_DB_NAME}
+      - POSTGRES_USER=${SURVEYSERVICE_DB_USER}
+      - POSTGRES_PASSWORD=${SURVEYSERVICE_DB_PASSWORD}
+
+    volumes:
+      - postgres-surveyservice-data:/var/lib/postgresql/data
+    ports:
+      - "${SURVEYSERVICE_DB_PORT}:${SURVEYSERVICE_DB_DEFAULT_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+  #DeletionService
+  # deletionservice:
+  #   image: macsi21/deletionservice:1.0
+  #   restart: always
+  #   container_name: deletionservice
+  #   # build:
+  #   #   context: ./deletionservice
+  #   #   dockerfile: DeletionService/Dockerfile
+  #   depends_on:
+  #     - surveyservice-db
+  #   networks:
+  #     - marxact-dev-network
+  #   environment:
+  #     - DOTNET_ENVIRONMENT=${DELETIONSERVICE_DOTNET_ENVIRONMENT}
+  #     - ASPNETCORE_URLS=${DELETIONSERVICE_ASPNETCORE_URLS}
+  #     - SURVEYSERVICE_DB_HOST=${SURVEYSERVICE_DB_HOST}
+  #     - SURVEYSERVICE_DB_NAME=${SURVEYSERVICE_DB_NAME}
+  #     - SURVEYSERVICE_DB_USER=${SURVEYSERVICE_DB_USER}
+  #     - SURVEYSERVICE_DB_PASSWORD=${SURVEYSERVICE_DB_PASSWORD}
+  #     - SURVEYSERVICE_DB_PORT=${SURVEYSERVICE_DB_PORT}
+  #     - SURVEYSERVICE_SSL_MODE=${SURVEYSERVICE_SSL_MODE}
+  #   ports:
+  #     - "${DELETIONSERVICE_PORT}:${DELETIONSERVICE_PORT}"
+  #   extra_hosts:
+  #     - "change.me:host-gateway"
+
+  geospatialanalysisservice:
+    image: macsi21/geospatialanalysisservice:1
+    restart: always
+    container_name: geospatialanalysisservice
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    networks:
+      - marxact-dev-network
+    environment:
+      - ROOT_PATH_FOR_DYNACONF=${GEO_ROOT_PATH_FOR_DYNACONF}
+    ports:
+      - "${GEOSPATIALSERVICE_PORT}:${GEOSPATIALSERVICE_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway" # for marXact local dev environment purposes
+
+  transformation-consumer:
+    image: macsi21/transformation-consumer:1
+    restart: always
+    container_name: transformation-consumer
+    # build:
+    #   context: ./transformationservice
+    #   dockerfile: Dockerfile
+    networks:
+      - marxact-dev-network
+    environment:
+      - ROOT_PATH_FOR_DYNACONF=${TRANS_ROOT_PATH_FOR_DYNACONF}
+    ports:
+      - "${TRANSFORMATION_CONSUMERSERVICE_PORT}:${TRANSFORMATION_CONSUMERSERVICE_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+  transformation-worker:
+    image: macsi21/transformation-worker:1
+    restart: always
+    container_name: transformation-worker
+    # build:
+    #   context: ./transformationservice
+    #   dockerfile: Dockerfile.worker
+    networks:
+      - marxact-dev-network
+    environment:
+      - ROOT_PATH_FOR_DYNACONF=${TRANS_ROOT_PATH_FOR_DYNACONF}
+    ports:
+      - "${TRANSFORMATION_WOPRKERSERVICE_PORT}:${TRANSFORMATION_WOPRKERSERVICE_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+  #UNICloudAuth
+  unicloudauth:
+    image: macsi21/unicloudauth:1
+    restart: always
+    container_name: unicloudauth
+    # build:
+    #   context: ./unicloudauth
+    #   dockerfile: UNICloudAuth/Dockerfile
+    networks:
+      - marxact-dev-network
+    environment:
+      - ASPNETCORE_URLS=${UNICLOUDAUTH_ASPNETCORE_URLS}
+      - ASPNETCORE_ENVIRONMENT=${UNICLOUDAUTH_ASPNETCORE_ENVIRONMENT}
+      - AUTH_DB_HOST=${UNICLOUDAUTH_AUTH_DB_HOST}
+      - POSTGRES_DB=${UNICLOUDAUTH_POSTGRES_DB}
+      - POSTGRES_USER=${UNICLOUDAUTH_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${UNICLOUDAUTH_POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${UNICLOUDAUTH_POSTGRES_PORT}
+      - CERT_NAME=${UNICLOUDAUTH_CERT_NAME}
+      - CERT_PASS=${UNICLOUDAUTH_CERT_PASS}
+      - SMTP_SERVER=${UNICLOUDAUTH_SMTP_SERVER}
+      - SMTP_PORT=${UNICLOUDAUTH_SMTP_PORT}
+      - SMTP_USERNAME=${UNICLOUDAUTH_SMTP_USERNAME}
+      - SMTP_PASSWORD=${UNICLOUDAUTH_SMTP_PASSWORD}
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=${UNICLOUDAUTH_CERT_PATH}
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${UNICLOUDAUTH_CERT_PASSWORD}
+      - POSTGRES_SSL_MODE=${UNICLOUDAUTH_POSTGRES_SSL_MODE}
+    ports:
+      - "${UNICLOUDAUTH_PORT}:${UNICLOUDAUTH_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+  #UNICloudAuth-API
+  unicloudauth-api:
+    image: macsi21/unicloudauth-api:1
+    restart: always
+    container_name: unicloudauth-api
+    # build:
+    #   context: ./unicloudauth
+    #   dockerfile: UNICloudAuth.Api/Dockerfile
+    networks:
+      - marxact-dev-network
+    environment:
+      - ASPNETCORE_URLS=${UNICLOUDAUTH_API_ASPNETCORE_URLS}
+      - ASPNETCORE_ENVIRONMENT=${UNICLOUDAUTH_API_ASPNETCORE_ENVIRONMENT}
+      - AUTH_DB_HOST=${UNICLOUDAUTH_AUTH_DB_HOST}
+      - POSTGRES_DB=${UNICLOUDAUTH_POSTGRES_DB}
+      - POSTGRES_USER=${UNICLOUDAUTH_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${UNICLOUDAUTH_POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${UNICLOUDAUTH_POSTGRES_PORT}
+      - SMTP_SERVER=${UNICLOUDAUTH_SMTP_SERVER}
+      - SMTP_PORT=${UNICLOUDAUTH_SMTP_PORT}
+      - SMTP_USERNAME=${UNICLOUDAUTH_SMTP_USERNAME}
+      - SMTP_PASSWORD=${UNICLOUDAUTH_SMTP_PASSWORD}
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=${UNICLOUDAUTH_CERT_PATH}
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=${UNICLOUDAUTH_CERT_PASSWORD}
+      - POSTGRES_SSL_MODE=${UNICLOUDAUTH_POSTGRES_SSL_MODE}
+    ports:
+      - "${UNICLOUDAUTH_API_PORT}:${UNICLOUDAUTH_API_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+  #UNICloudAuth-DB
+  unicloudauth-db:
+    image: "postgres:alpine"
+    restart: always
+    container_name: unicloudauth-db
+    networks:
+      - marxact-dev-network
+    environment:
+      - POSTGRES_DB=${UNICLOUDAUTH_POSTGRES_DB}
+      - POSTGRES_USER=${UNICLOUDAUTH_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${UNICLOUDAUTH_POSTGRES_PASSWORD}
+    volumes:
+      - postgres-auth-data:/var/lib/postgresql/data
+    ports:
+      - "${UNICLOUDAUTH_DB_PORT}:${UNICLOUDAUTH_DB_DEFAULT_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+volumes:
+  postgres-surveyservice-data:
+  postgres-auth-data:
+
+networks:
+  marxact-dev-network:

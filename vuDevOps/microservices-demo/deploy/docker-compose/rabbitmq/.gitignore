@@ -1,0 +1,7 @@
+*.rar
+
+# Docker-compose file backup
+docker-compose.yml.bak
+
+# Misc files
+debug.log

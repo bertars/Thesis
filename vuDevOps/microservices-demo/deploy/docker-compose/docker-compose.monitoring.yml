@@ -1,0 +1,75 @@
+version: '3.9'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - promdata-scaphandre:/prometheus 
+      - ./alert.rules:/etc/prometheus/alert.rules
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    expose:
+      - 30000
+    ports:
+      - 30000:9090
+    links:
+      - alertmanager:alertmanager
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 30001:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=foobar
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana-provisioning:/etc/grafana/provisioning
+    depends_on:
+      - prometheus
+      
+  nodeexporter:
+    image: quay.io/prometheus/node-exporter:v1.1.2
+    container_name: nodeexporter
+    volumes:
+      - '/:/host:ro,rslave'
+    pid: host
+    command:
+      - '--path.rootfs=/host'
+    restart: unless-stopped
+    ports:
+      - 9100:9100
+
+  alertmanager:
+    image: prom/alertmanager
+    container_name: alertmanager
+    ports:
+      - 9093:9093
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/config.yml
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
+
+  importer:
+    image: giantswarm/tiny-tools
+    container_name: grafanaimporter
+    entrypoint: /bin/sh import.sh
+    working_dir: /opt/grafana-import-dashboards
+    volumes:
+      - ./grafana:/opt/grafana-import-dashboards
+    links:
+      - grafana:grafana
+    depends_on:
+      - grafana
+
+volumes:
+  promdata-scaphandre:
+  grafana_data:
+

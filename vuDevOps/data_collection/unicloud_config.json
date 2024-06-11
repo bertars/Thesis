@@ -1,0 +1,62 @@
+{
+    "application_name": "unicloud",
+    "host_url": "145.108.225.16:9099",
+    "load_script_type": "locust",
+    "load_script": "./load-test/runCloudLocust.sh",
+    "cooldown_duration": 2,
+    "metrics": {
+        "script": "./metrics/get_unicloud_metrics.py",
+        "prometheus_url": "145.108.225.6:30000",
+        "output_location": "./unicloud-data"
+    },
+    "services": [
+        {
+            "name": "transformation-worker",
+            "stress": true
+        },
+        {
+            "name": "transformation-consumer",
+            "stress": false
+        },
+        {
+            "name": "surveyservice",
+            "stress": true
+        },
+        {
+            "name": "geospatialanalysisservice",
+            "stress": false
+        },
+        {
+            "name": "unicloudauth",
+            "stress": false
+        },
+        {
+            "name": "unicloudauth-api",
+            "stress": false
+        }
+    ],
+    "usage_scenario": [
+        {
+            "id": "scenario_A",
+            "name": "Survey objects"
+        },
+        {
+            "id": "scenario_B",
+            "name": "Transform coordinates and perform Geospatial Analysis"
+        }
+    ],
+    "user_load": [
+        {
+            "name": "low",
+            "count": 100
+        },
+        {
+            "name": "medium",
+            "count": 500
+        },
+        {
+            "name": "high",
+            "count": 1000
+        }
+    ]
+}

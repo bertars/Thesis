@@ -1,0 +1,9 @@
+apiVersion: 1
+
+datasources:
+  - name: prometheus
+    type: prometheus
+    access: proxy
+    url: http://145.108.225.6:30000
+    isDefault: true
+    basicAuth: false

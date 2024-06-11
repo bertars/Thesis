@@ -1,0 +1,57 @@
+{
+    "rabbit_version": "3.9.10",
+    "users": [
+        {
+            "hashing_algorithm":"rabbit_password_hashing_sha256",
+            "limits":{},
+            "name":"marxact",
+            "password_hash":"uYH2TBB8isJK1sHdg5HnUF9bvS7fD6zgPIW1eluxZICqA2tL",
+            "tags":["administrator"]
+        }
+    ],
+    "vhosts": [
+        {
+            "limits": [],
+            "metadata": { "description": "Default virtual host", "tags": [] },
+            "name": "/"
+        },
+        {
+            "limits": [],
+            "metadata": { "description": "Default virtual host, channel that is used to signal incoming webhook events", "tags": [] },
+            "name": "event"
+        },
+        {
+            "limits": [],
+            "metadata": { "description": "Default virtual host, communication channel between datalinking and microservice", "tags": [] },
+            "name": "service"
+        }
+    ],
+    "permissions": [
+        {
+            "configure":".*",
+            "read":".*",
+            "user":"marxact",
+            "vhost":"service",
+            "write":".*"
+        },
+        {
+            "configure":".*",
+            "read":".*",
+            "user":"marxact",
+            "vhost":"event",
+            "write":".*"
+        },
+        {
+            "configure":".*",
+            "read":".*",
+            "user":"marxact",
+            "vhost":"/",
+            "write":".*"
+        }
+    ],
+    "parameters": [],
+    "policies": [],
+    "queues": [],
+    "exchanges": [],
+    "bindings": []
+}

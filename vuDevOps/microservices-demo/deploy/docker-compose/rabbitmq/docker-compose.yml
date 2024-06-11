@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  unirabbitmq:
+    image: rabbitmq:management
+    restart: always
+    container_name: unirabbitmq
+    networks:
+      - marxact-dev-network
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq
+      - ./rabbitmq/.conf/rabbit.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq/.conf/definitions.json:/etc/rabbitmq/definitions.json
+    ports:
+      - "${RABBITMQ_API_PORT}:${RABBITMQ_API_DEFAULT_PORT}"
+      - "${RABBITMQ_AMQP_PORT}:${RABBITMQ_AMQP_DEFAULT_PORT}"
+    extra_hosts:
+      - "change.me:host-gateway"
+
+volumes:
+  rabbitmqdata:
+
+networks:
+  marxact-dev-network:

@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  unirabbitmq:
+    volumes:
+      - ./.conf/rabbit.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./.conf/definitions.json:/etc/rabbitmq/definitions.json
