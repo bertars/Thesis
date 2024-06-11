@@ -38,7 +38,9 @@ services:
     image: quay.io/prometheus/node-exporter:v1.1.2
     container_name: nodeexporter
     volumes:
-      - '/:/host:ro,rslave'
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/host:ro
     pid: host
     command:
       - '--path.rootfs=/host'
