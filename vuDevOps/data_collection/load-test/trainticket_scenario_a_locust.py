@@ -3,6 +3,7 @@ import base64
 import random
 import time
 import json
+# import requests
 import string
 
 class TrainTicketUserBehavior(TaskSet):
@@ -52,7 +53,7 @@ class TrainTicketUserBehavior(TaskSet):
             "departureTime": date
         }
         response = self.client.post(
-            url="/api/v1/travelservice/trips/left",
+            url= "/api/v1/travelservice/trips/left",
             headers=headers,
             json=body)
 
@@ -61,7 +62,7 @@ class TrainTicketUserBehavior(TaskSet):
                 data = response.json()["data"]
                 if not data:
                     print("travel 2 service")
-                    response = requests.post(
+                    response = self.client.post(
                         url="/api/v1/travel2service/trips/left",
                         headers=headers,
                         json=body)
@@ -80,7 +81,7 @@ class TrainTicketUserBehavior(TaskSet):
     @task
     def browse_tickets(self):
         # self.login()
-        print("hello world")
+        print("Trying to search...")
         date = "2024-06-15"
         stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou"]
         preview_count = random.randint(3, 9)
