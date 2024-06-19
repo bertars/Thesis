@@ -4,6 +4,7 @@ import random
 import time
 import json
 # import requests
+import base64
 import string
 
 class TrainTicketUserBehavior(TaskSet):
@@ -21,7 +22,8 @@ class TrainTicketUserBehavior(TaskSet):
 
     def login(self):
         # Perform login and store the token
-        print("Trying to log in")
+        print("Trying to log in...")
+
         headers = {"Accept": "application/json",
                 "Content-Type": "application/json"
         }
@@ -30,7 +32,8 @@ class TrainTicketUserBehavior(TaskSet):
                                  headers=headers,
                                  json={
                                      "username": self.username,
-                                     "password": self.password})
+                                     "password": self.password,
+                                     "verifyCode": "1234"})
 
         if response.status_code == 200:
             try:
@@ -40,18 +43,22 @@ class TrainTicketUserBehavior(TaskSet):
                 self.user_id = response_as_json["userId"]
                 print("Logged in successfully!")
             except (ValueError, KeyError) as e:
-                print(f"Error parsing login response: {e}")
+                print(f"Error parsing login response: {e}, {response.text}")
         else:
             print(f"Failed to login: {response.status_code}, {response.text}")
 
-    def search_ticket(self, date, from_station, to_station):
+    def search_ticket(self, date):
+        stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou", "Shang Hai Hong Qiao", "Bei Jing",
+                    "Shi Jia Zhuang", "Xu Zhou", "Ji Nan", "Hang Zhou", "Jia Xing Nan", "Zhen Jiang"]
+        from_station, to_station = random.sample(stations, 2)
         headers = {"Accept": "application/json",
                 "Content-Type": "application/json"}
         body = {
-            "startingPlace": from_station,
-            "endPlace": to_station,
-            "departureTime": date
+            "departureTime": date,
+            "endPlace": from_station,
+            "startingPlace": to_station
         }
+        
         response = self.client.post(
             url= "/api/v1/travelservice/trips/left",
             headers=headers,
@@ -61,17 +68,19 @@ class TrainTicketUserBehavior(TaskSet):
             try:
                 data = response.json()["data"]
                 if not data:
-                    print("travel 2 service")
+                    print("No data from travelservice, trying travel2service")
                     response = self.client.post(
                         url="/api/v1/travel2service/trips/left",
                         headers=headers,
                         json=body)
                     data = response.json()["data"]
+                print(from_station, to_station, date)
                 print(json.dumps(data))
-                for res in data:
-                    self.trip_id = res["tripId"]["type"] + res["tripId"]["number"]
-                    self.start_station = res["startingStation"]
-                    self.terminal_station = res["terminalStation"]
+                if data is not None:
+                    for res in data:
+                        self.trip_id = res["tripId"]["type"] + res["tripId"]["number"]
+                        self.start_station = res["startingStation"]
+                        self.terminal_station = res["terminalStation"]
             except (ValueError, KeyError) as e:
                 print(f"Error parsing search ticket response: {e}")
         else:
@@ -80,15 +89,12 @@ class TrainTicketUserBehavior(TaskSet):
 
     @task
     def browse_tickets(self):
-        # self.login()
-        print("Trying to search...")
-        date = "2024-06-15"
-        stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou"]
+        self.login()
+
+        date = "2024-06-19"
         preview_count = random.randint(3, 9)
         for _ in range(preview_count):
-            from_station, to_station = random.sample(stations, 2)
-            self.search_ticket(date, from_station, to_station)
-            print(from_station, to_station, date)
+            self.search_ticket(date)
             wait_time = random.uniform(1, 3)
             time.sleep(wait_time)
 
