@@ -6,6 +6,7 @@ import json
 # import requests
 import base64
 import string
+from datetime import datetime
 
 class TrainTicketUserBehavior(TaskSet):
     def __init__(self, parent):
@@ -48,15 +49,14 @@ class TrainTicketUserBehavior(TaskSet):
             print(f"Failed to login: {response.status_code}, {response.text}")
 
     def search_ticket(self, date):
-        stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou", "Shang Hai Hong Qiao", "Bei Jing",
-                    "Shi Jia Zhuang", "Xu Zhou", "Ji Nan", "Hang Zhou", "Jia Xing Nan", "Zhen Jiang"]
+        stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou"]
         from_station, to_station = random.sample(stations, 2)
         headers = {"Accept": "application/json",
                 "Content-Type": "application/json"}
         body = {
             "departureTime": date,
-            "endPlace": from_station,
-            "startingPlace": to_station
+            "endPlace": to_station,
+            "startingPlace": from_station
         }
         
         response = self.client.post(
@@ -91,7 +91,9 @@ class TrainTicketUserBehavior(TaskSet):
     def browse_tickets(self):
         self.login()
 
-        date = "2024-06-19"
+        today = datetime.today()
+        date = today.strftime('%Y-%m-%d')
+
         preview_count = random.randint(3, 9)
         for _ in range(preview_count):
             self.search_ticket(date)
@@ -101,4 +103,4 @@ class TrainTicketUserBehavior(TaskSet):
 
 class TrainTicketUser(HttpUser):
     tasks = [TrainTicketUserBehavior]
-    wait_time = between(1, 3)
+   
