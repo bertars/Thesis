@@ -18,7 +18,7 @@ class BookTicketUserBehavior(TaskSet):
         self.contactid = ""
         self.orderid = ""
         self.paid_orderid = ""
-        self.trip_id = "D1345"
+        self.trip_id = "G1234"
         self.start_station = "Shang Hai"
         self.terminal_station = "Su Zhou"
 
@@ -104,9 +104,9 @@ class BookTicketUserBehavior(TaskSet):
         response = self.client.get(
             url="/api/v1/contactservice/contacts/account/" + self.user_id,
             headers=head)
-        print(response.json())
+        # print(response.json())
         data = response.json()["data"]
-        print(json.dumps(data))
+        # print(json.dumps(data))
         if len(data) == 0:
             response = self.client.post(
                 url="/api/v1/contactservice/contacts",
@@ -120,7 +120,7 @@ class BookTicketUserBehavior(TaskSet):
         else:
             self.contactid = data[0]["id"]
 
-        print(self.contactid)
+        # print(self.contactid)
 
     def finish_booking(self, date):
         headers = {"Accept": "application/json",
@@ -163,7 +163,7 @@ class BookTicketUserBehavior(TaskSet):
                 "boughtDateStart": "null", "boughtDateEnd": "null"})
 
         data = response.json()["data"]
-        print(data)
+        # print(data)
         if response.status_code == 200:
             print("Order successful!")
     
