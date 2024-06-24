@@ -53,15 +53,17 @@ class RunnerConfig:
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
         representing each run performed"""
-        factor1 = FactorModel("example_factor1", ['example_treatment1', 'example_treatment2', 'example_treatment3'])
-        factor2 = FactorModel("example_factor2", [True, False])
+        factor1 = FactorModel("scenarios", ['scenarioA', 'scenarioB'])
+        factor2 = FactorModel("anomaly_type", ['resource', 'time'])
+        factor3 = FactorModel("service_stressed", ['serviceA', 'serviceB'])
+        factor4 = FactorModel("user_load", [100, 1000])
         self.run_table_model = RunTableModel(
-            factors=[factor1, factor2],
+            factors=[factor1, factor2,factor3, factor4],
             exclude_variations=[
-                {factor1: ['example_treatment1']},                   # all runs having treatment "example_treatment1" will be excluded
-                {factor1: ['example_treatment2'], factor2: [True]},  # all runs having the combination ("example_treatment2", True) will be excluded
+                # {factor1: ['example_treatment1']},                   # all runs having treatment "example_treatment1" will be excluded
+                # {factor1: ['example_treatment2'], factor2: [True]},  # all runs having the combination ("example_treatment2", True) will be excluded
             ],
-            data_columns=['avg_cpu', 'avg_mem']
+            data_columns=['avg_cpu', 'avg_mem', 'avg_mem_rss', 'avg_mem_cache', 'disk', 'power', 'request_duration', 'response_time']
         )
         return self.run_table_model
 
