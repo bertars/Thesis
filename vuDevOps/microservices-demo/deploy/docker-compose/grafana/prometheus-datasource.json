@@ -1,7 +1,7 @@
 {
   "name": "prometheus",
   "type": "prometheus",
-  "url": "http://145.108.225.6:30000",
+  "url": "http://145.108.225.7:30000",
   "access": "proxy",
   "basicAuth": false,
   "isDefault": true

@@ -19,7 +19,7 @@ scrape_configs:
   - job_name: "frontend"
     metrics_path: "metrics"
     static_configs:
-      - targets: ["145.108.225.16:9099"]
+      - targets: ["145.108.225.16:9090"]
 
   # The job name assigned to scraped metrics by default.
   - job_name: "catalogue"

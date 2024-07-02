@@ -1,0 +1,12 @@
+{
+    "application_name": "trainticket",
+    "host_url": "145.108.225.16:8080",
+    "load_script_type": "locust",
+    "load_script": "./load-test/runTrainTicketLocust.sh",
+    "cooldown_duration": 2,
+    "metrics": {
+      "script": "./metrics/get_trainticket_metrics.py",
+      "prometheus_url": "145.108.225.7:30000",
+      "output_location": "./trainticket-data"
+    }
+}
