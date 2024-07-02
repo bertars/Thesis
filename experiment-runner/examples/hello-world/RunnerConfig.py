@@ -21,7 +21,7 @@ import json
 import os 
 import signal
 
-WARMUP = 3
+WARMUP = 0
 
 class RunnerConfig:
     ROOT_DIR = Path(dirname(realpath(__file__)))
@@ -120,56 +120,21 @@ class RunnerConfig:
         install_stress_command = f'docker exec -u root -it {service_name} sh -c "{stress_ng_command}"'
         subprocess.run(install_stress_command, shell=True, check=True)
 
-    # def generate_load(self, app_data, experiment,trial,treatments, log_file):
-    #     # locust is used for SockShop
-    #     if app_data['load_script_type'] == "locust":
-    #         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    #         print('\033[92m'+ timestamp + f' Sending traffic to the target system at {app_data["host_url"]}' + '\033[0m')
+    def generate_load(self, app_data,scenario,user_count, log_file):
+        # locust is used for SockShop
+        if app_data['load_script_type'] == "locust":
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print('\033[92m'+ timestamp + f' Sending traffic to the target system at {app_data["host_url"]}' + '\033[0m')
             
-    #         process = None
-            
-    #         for treatment in treatments:
-    #             user_count = experiment[trial][treatment]['users']['count']
-    #             user_spawn_rate = experiment[trial][treatment]['users']['count'] * 0.1
-    #             scenario = experiment[trial][treatment]['scenario']['id']
-    #             process =  subprocess.Popen(f"{app_data['load_script']} -h {app_data['host_url']} -r {int(100)}s -l {log_file} -u {user_count} -s {user_spawn_rate} -n {scenario}", shell=True, preexec_fn=os.setsid)
-    #             # Locust needs a few seconds to deploy all traffic
-    #             time.sleep(10)
-    #         return process
-    
-    # def run_treatments(treatments,trial, experiment, locust_load_count):
-    #     """
-    #     Parameters:
-    #     treatments (List<int>): Represents the list of treatment index positions for the current repetition
-        
-    #     data (List<List<JSONObjec>): Represents the total combinations of treatments
-        
-    #     traffic_process (int): Represents the PID for the locust process
-        
-    #     locust_load_count (int): Represents the next iteration of the locust process. Used for creating locust logs
-    #     """
-    #     treatment_file_paths = []
-    #     treatment_results = []
-        
-    #     for treatment in treatments:
-    #         # Create the new directory for current stressors
-    #         if experiment[trial][treatment]['stressor']['id'] == 'normal':      
-    #             prefix = f"{experiment[trial][treatment]['stressor']['id']}/{experiment[trial][treatment]['users']['name']}/{experiment[trial][treatment]['scenario']['id']}"
-    #             locust_prefix = f"{experiment[trial][treatment]['stressor']['id']}/{experiment[trial][treatment]['users']['name']}/{experiment[trial][treatment]['scenario']['id']}/{locust_load_count}"
-    #         else:
-    #             prefix = f"{experiment[trial][treatment]['service']}/{experiment[trial][treatment]['stressor']['id']}/{experiment[trial][treatment]['users']['name']}/{experiment[trial][treatment]['scenario']['id']}"
-    #             locust_prefix = f"{experiment[trial][treatment]['service']}/{experiment[trial][treatment]['stressor']['id']}/{experiment[trial][treatment]['users']['name']}/{experiment[trial][treatment]['scenario']['id']}/{locust_load_count}"
-
-    #         treatment_file_paths.append(generate_file_path(app_data, prefix))
-            
-
-    #     create_locust_log(locust_prefix)
-        
-    #     time.sleep(2)
-
-    #     # Generate traffic with locust
-    #     traffic_process = generate_load(app_data, experiment,trial,treatments, f'{locust_logs}/{locust_prefix}/Locust_log')
-        
+            process = None
+                
+            user_spawn_rate = user_count * 0.1
+            script_path = f"../vuDevOps/data_collection{app_data['load_script']}"
+            subprocess.run(["chmod", "+x", script_path], check=True)
+            process =  subprocess.Popen(f"{script_path} -h {app_data['host_url']} -r {int(100)}s -l {log_file} -u {user_count} -s {user_spawn_rate} -n {scenario}", shell=True, preexec_fn=os.setsid)
+            # Locust needs a few seconds to deploy all traffic
+            time.sleep(10)
+            return process        
         
 
     def start_run(self, context: RunnerContext) -> None:
@@ -192,11 +157,30 @@ class RunnerConfig:
         time.sleep(WARMUP * 60)
         service_stressed = context.run_variation['service_stressed']
         self.install_stress_ng(service_stressed)
+
         scenario = context.run_variation['scenario']
         anomaly = context.run_variation['anomaly_type']
         user_load = context.run_variation['user_load']
-        print(f'Current treatment {scenario} - {anomaly} - {service_stressed} - {user_load}')
+        repetition = context.run_variation['repetition_id']
 
+        print(f'Current treatment {scenario} - {anomaly} - {service_stressed} - {user_load} - {repetition}')
+
+        base_dir = Path('../vuDevOps/data_collection/sockshop-data')
+
+        # Ensure the base directory exists
+        os.makedirs(base_dir, exist_ok=True)
+
+        # Create the directory path
+        dir_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}'
+    
+        # Create the directories
+        os.makedirs(dir_path, exist_ok=True)
+
+        time.sleep(2)
+        
+        print(f'Created directory: {dir_path}')
+
+        traffic_process = self.generate_load(self.app_data, scenario, user_load, dir_path)
 
 
     def start_measurement(self, context: RunnerContext) -> None:

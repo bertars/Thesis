@@ -2,7 +2,7 @@
   "application_name": "sockshop",
   "host_url": "145.108.225.17:9090",
   "load_script_type": "locust",
-  "load_script": "./load-test/runLocust.sh",
+  "load_script": "/load-test/runLocust.sh",
   "cooldown_duration": 2,
   "metrics": {
     "script": "./metrics/get_metrics.py",

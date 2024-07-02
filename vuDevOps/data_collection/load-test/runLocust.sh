@@ -31,13 +31,13 @@ do_check() {
 
   # Check scenario
   if [ "$SCENARIO" == "scenario_A" ]; then
-    LOCUST_FILE="./load-test/sockshop_scenario_a_locust.py"
+    LOCUST_FILE="../vuDevOps/data_collection/load-test/sockshop_scenario_a_locust.py"
     echo "Scenario A: Using Locust file $LOCUST_FILE"
   elif [ "$SCENARIO" == "scenario_B" ]; then
-    LOCUST_FILE="./load-test/sockshop_scenario_b_locust.py"
+    LOCUST_FILE="../vuDevOps/data_collection/load-test/sockshop_scenario_b_locust.py"
     echo "Scenario B: Using Locust file $LOCUST_FILE"
   else
-    LOCUST_FILE="./load-test/locustfile.py"
+    LOCUST_FILE="../vuDevOps/data_collection/load-test/locustfile.py"
     echo "Default Locust file: $LOCUST_FILE"
   fi
 }
