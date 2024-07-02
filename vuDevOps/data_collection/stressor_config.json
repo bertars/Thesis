@@ -3,12 +3,6 @@
   "duration": 5,
   "stressors": [
     {
-      "id": "load_50",
-      "workers": 1,
-      "resource_load": 50,
-      "size": "512M"
-    },
-    {
       "id": "load_90",
       "workers": 1,
       "resource_load": 90,

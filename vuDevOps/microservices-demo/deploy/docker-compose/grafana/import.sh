@@ -6,7 +6,7 @@ for file in *-datasource.json; do
   if [ -e "$file" ]; then
     echo "importing $file" &&
     curl --silent --fail --show-error \
-      --request POST http://admin:foobar@145.108.225.6:3000/api/datasources \
+      --request POST http://admin:foobar@145.108.225.7:30000/api/datasources \
       --header "Content-Type: application/json" \
       --header "Accept: application/json" \
       --data-binary "@$file";
@@ -18,7 +18,7 @@ done;
 for file in *-dashboard.json; do
   if [ -e "$file" ]; then
     echo "importing $file" &&
-    curl --request POST http://admin:foobar@145.108.225.6:3000/api/dashboards/import \
+    curl --request POST http://admin:foobar@145.108.225.7:30000/api/dashboards/import \
       --header "Content-Type: application/json" \
       --header "Accept: application/json" \
       --data-binary "@$file";
