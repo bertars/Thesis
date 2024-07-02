@@ -1,12 +1,7 @@
 {
   "trials": 10,
   "duration": 5,
-  "stressors": [
-    {
-      "id": "load_90",
-      "workers": 1,
-      "resource_load": 90,
-      "size": "921M"
-    }
-  ]
+  "workers": 1,
+  "resource_load": 90,
+  "size": "921M"
 }

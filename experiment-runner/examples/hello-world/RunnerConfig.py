@@ -10,6 +10,7 @@ from typing import Dict, List, Any, Optional
 from pathlib import Path
 from os.path import dirname, realpath
 
+from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 import time
 import subprocess
@@ -134,7 +135,43 @@ class RunnerConfig:
             process =  subprocess.Popen(f"{script_path} -h {app_data['host_url']} -r {int(100)}s -l {log_file} -u {user_count} -s {user_spawn_rate} -n {scenario}", shell=True, preexec_fn=os.setsid)
             # Locust needs a few seconds to deploy all traffic
             time.sleep(10)
-            return process        
+            return process    
+
+    def run_command_command(self, command):
+        start_time = time.time()
+        process = subprocess.Popen(command, shell=True)
+        process.wait()
+        end_time = time.time()
+        return start_time, end_time 
+
+    def run_stress(self, service_name):
+        stress_commands = []
+        stress_timespan_results = []
+        
+        try:
+            duration = self.stressor_data['duration']      
+            command = f'docker exec {service_name} sh -c "stress-ng --temp-path /tmp/ --timeout {str(duration * 60)}s'
+            print(f'Running {service_name}')
+            
+            cpu_load = self.stressor_data['resource_load']
+            resource_load = self.stressor_data['size']
+            workers = self.stressor_data['workers']
+            command += f' --cpu {workers} --cpu-load {cpu_load}'
+            command += f' --vm {workers} --vm-bytes {resource_load}'
+            command += f' --hdd {workers} --hdd-bytes {resource_load}"'
+                
+            #Add the command to the list of commands that should be executed
+            stress_commands.append(command)
+            # Create a ThreadPoolExecutor with a max_workers value that suits your needs
+            max_workers = 1  # You can adjust this based on your system's capabilities
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                stress_timespan_results = list(executor.map(self.run_command_command, stress_commands))
+
+            return stress_timespan_results
+
+        except Exception as e:
+            print(e)
+            raise e
         
 
     def start_run(self, context: RunnerContext) -> None:
@@ -146,11 +183,11 @@ class RunnerConfig:
 
         output.console_log("Bringing system up...")
 
-        p = subprocess.Popen('sudo docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml up -d', shell=True)
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml up -d', shell=True)
         p.wait()
-        p = subprocess.Popen('sudo docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml up -d', shell=True)
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml up -d', shell=True)
         p.wait()
-        p = subprocess.Popen('sudo docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml up -d', shell=True)
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml up -d', shell=True)
         p.wait()
 
         print('Warm-up time')
@@ -180,13 +217,20 @@ class RunnerConfig:
         
         print(f'Created directory: {dir_path}')
 
-        traffic_process = self.generate_load(self.app_data, scenario, user_load, dir_path)
+        traffic_process = self.generate_load(self.app_data, scenario, user_load, f'{dir_path}/Locust_log')
 
 
     def start_measurement(self, context: RunnerContext) -> None:
         """Perform any activity required for starting measurements."""
         output.console_log("Config.start_measurement() called!")
         # Run stress and collect metrics 
+        service_stressed = context.run_variation['service_stressed']
+        scenario = context.run_variation['scenario']
+        anomaly = context.run_variation['anomaly_type']
+        user_load = context.run_variation['user_load']
+        repetition = context.run_variation['repetition_id']
+
+        treatment_results = self.run_stress(service_stressed)        
 
 
     def interact(self, context: RunnerContext) -> None:
