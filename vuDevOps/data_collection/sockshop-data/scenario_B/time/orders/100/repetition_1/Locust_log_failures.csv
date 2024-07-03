@@ -1,3 +1,0 @@
-Method,Name,Error,Occurrences
-GET,/login,RemoteDisconnected('Remote end closed connection without response'),100
-POST,/cart,RemoteDisconnected('Remote end closed connection without response'),100

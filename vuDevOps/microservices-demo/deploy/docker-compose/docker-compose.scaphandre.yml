@@ -4,6 +4,7 @@ services:
   scaphandre:
     image: hubblo/scaphandre
     container_name: scaphandre
+    privileged: true
     ports: 
       - 8081:8080
     volumes:

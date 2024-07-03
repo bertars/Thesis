@@ -64,6 +64,7 @@ class RunnerConfig:
         ])
         self.run_table_model = None  # Initialized later
         self.load_configs()
+        self.traffic_process = None
 
         output.console_log("Custom config loaded")
 
@@ -84,11 +85,11 @@ class RunnerConfig:
         # repetitions = FactorModel("repetition_id", list(range(1, 31)))
 
         services = [
-            'front-end', 'edge-router', 'catalogue', 'catalogue-db', 'carts', 'carts-db',
+            'front-end', 'catalogue', 'catalogue-db', 'carts', 'carts-db',
             'orders', 'orders-db', 'shipping', 'queue-master', 'rabbitmq', 'payment',
-            'user', 'user-db', 'user-sim'
+            'user', 'user-db'
         ]
-        metrics = ['avg_cpu', 'avg_mem', 'avg_mem_rss', 'avg_mem_cache', 'disk', 'power', 'request_duration']
+        metrics = ['avg_cpu', 'avg_mem', 'avg_mem_rss', 'avg_mem_cache', 'avg_disk', 'avg_power']
         data_columns = [f"{service}_{metric}" for metric in metrics for service in services]
         
         self.run_table_model = RunTableModel(
@@ -182,6 +183,7 @@ class RunnerConfig:
         print(f'Created directory: {dir_path}')
 
         traffic_process = self.generate_load(self.app_data, scenario, user_load, f'{dir_path}/Locust_log')
+        self.traffic_process = traffic_process
 
 
     def run_command_command(self, command):
@@ -261,17 +263,52 @@ class RunnerConfig:
 
         output.console_log("Config.interact() called!")
 
+    def run_cooldown(self, app_data, traffic_process):
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print('\033[92m' + "Starting cooldown script" + '\033[0m')
+        # duration = app_data['cooldown_duration']
+        duration = 1
+
+        # Terminate locust subprocess
+        print('\033[92m' + f"Terminating Load Generation for {traffic_process.pid} at {timestamp}" + '\033[0m')
+        if traffic_process != None:
+            os.killpg(os.getpgid(traffic_process.pid), signal.SIGKILL) #DEVNULL disregards the output
+
+        locust_process_name = "locust"
+        locust_script_process_name = "runLocust.sh"
+        
+        subprocess.run(["sudo", "killall", locust_process_name], check=False)
+        subprocess.run(["sudo", "killall", locust_script_process_name], check=False)
+
+        
+        # Shhhh the serer is resting
+        print('\033[92m' + f'Server resting for {duration} m' + '\033[0m')
+        time_seconds = (duration * 60)
+        time.sleep(time_seconds)
+
+        print('\033[92m' + 'Hybernation Complete' + '\033[0m')
+
     def stop_measurement(self, context: RunnerContext) -> None:
         """Perform any activity here required for stopping measurements."""
 
         output.console_log("Config.stop_measurement called!")
+        self.run_cooldown(self.app_data, self.traffic_process)
+
 
     def stop_run(self, context: RunnerContext) -> None:
         """Perform any activity here required for stopping the run.
         Activities after stopping the run should also be performed here."""
 
         output.console_log("Config.stop_run() called!")
-        # Cooldown Period, allow the system to rest, its going to be a long experiment -_-
+
+        output.console_log("Stopping system...")
+
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml stop', shell=True)
+        p.wait()
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml stop', shell=True)
+        p.wait()
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml stop', shell=True)
+        p.wait()
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, Any]]:
         """Parse and process any measurement data here.
@@ -279,13 +316,64 @@ class RunnerConfig:
         Returns a dictionary with keys `self.run_table_model.data_columns` and their values populated"""
 
         output.console_log("Config.populate_run_data() called!")
-        return None
+
+        service_stressed = context.run_variation['service_stressed']
+        scenario = context.run_variation['scenario']
+        anomaly = context.run_variation['anomaly_type']
+        user_load = context.run_variation['user_load']
+        repetition = context.run_variation['repetition_id']
+
+        base_dir = Path('../vuDevOps/data_collection/sockshop-data')
+
+        metrics_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}' / 'metrics.csv'
+
+        metrics_df = pd.read_csv(metrics_path)
+
+        services = [
+            'front-end', 'catalogue', 'catalogue-db', 'carts', 'carts-db',
+            'orders', 'orders-db', 'shipping', 'queue-master', 'rabbitmq', 'payment',
+            'user', 'user-db'
+        ]
+
+        run_data = {}
+        for service in services:
+            cpu_col = f'{service}_cpu'
+            mem_col = f'{service}_memory'
+            mem_rss_col = f'{service}_memory_rss'
+            mem_cache_col = f'{service}_memory_cache'
+            disk_col = f'{service}_disk'
+            power_col = f'{service}_power'
+            
+            if cpu_col in metrics_df.columns:
+                run_data[f'{service}_avg_cpu'] = round(metrics_df[cpu_col].mean(), 3)
+            if mem_col in metrics_df.columns:
+                run_data[f'{service}_avg_mem'] = round(metrics_df[mem_col].mean(), 3)
+            if mem_rss_col in metrics_df.columns:
+                run_data[f'{service}_avg_mem_rss'] = round(metrics_df[mem_rss_col].mean(), 3)
+            if mem_cache_col in metrics_df.columns:
+                run_data[f'{service}_avg_mem_cache'] = round(metrics_df[mem_cache_col].mean(), 3)
+            if disk_col in metrics_df.columns:
+                run_data[f'{service}_avg_disk'] = round(metrics_df[disk_col].mean(), 3)
+            if power_col in metrics_df.columns:
+                run_data[f'{service}_avg_power'] = round(metrics_df[power_col].mean(), 9)
+
+        return run_data
 
     def after_experiment(self) -> None:
         """Perform any activity required after stopping the experiment here
         Invoked only once during the lifetime of the program."""
 
         output.console_log("Config.after_experiment() called!")
+        output.console_log("Bringing system down...")
+
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
+        p.wait()
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml down', shell=True)
+        p.wait()
+        p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
+        p.wait()
+
+        print('\033[92m' + 'Experiment is Complete! WOOHOO! 🚀' + '\033[0m')
 
     # ================================ DO NOT ALTER BELOW THIS LINE ================================
     experiment_path:            Path             = None
