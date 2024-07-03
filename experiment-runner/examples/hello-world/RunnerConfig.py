@@ -89,7 +89,7 @@ class RunnerConfig:
             'user', 'user-db', 'user-sim'
         ]
         metrics = ['avg_cpu', 'avg_mem', 'avg_mem_rss', 'avg_mem_cache', 'disk', 'power', 'request_duration']
-        data_columns = [f"{metric}_{service}" for metric in metrics for service in services]
+        data_columns = [f"{service}_{metric}" for metric in metrics for service in services]
         
         self.run_table_model = RunTableModel(
         factors=[factor1, factor2, factor3, factor4, repetitions],
@@ -137,42 +137,6 @@ class RunnerConfig:
             time.sleep(10)
             return process    
 
-    def run_command_command(self, command):
-        start_time = time.time()
-        process = subprocess.Popen(command, shell=True)
-        process.wait()
-        end_time = time.time()
-        return start_time, end_time 
-
-    def run_stress(self, service_name):
-        stress_commands = []
-        stress_timespan_results = []
-        
-        try:
-            duration = self.stressor_data['duration']      
-            command = f'docker exec {service_name} sh -c "stress-ng --temp-path /tmp/ --timeout {str(duration * 60)}s'
-            print(f'Running {service_name}')
-            
-            cpu_load = self.stressor_data['resource_load']
-            resource_load = self.stressor_data['size']
-            workers = self.stressor_data['workers']
-            command += f' --cpu {workers} --cpu-load {cpu_load}'
-            command += f' --vm {workers} --vm-bytes {resource_load}'
-            command += f' --hdd {workers} --hdd-bytes {resource_load}"'
-                
-            #Add the command to the list of commands that should be executed
-            stress_commands.append(command)
-            # Create a ThreadPoolExecutor with a max_workers value that suits your needs
-            max_workers = 1  # You can adjust this based on your system's capabilities
-            with ThreadPoolExecutor(max_workers=max_workers) as executor:
-                stress_timespan_results = list(executor.map(self.run_command_command, stress_commands))
-
-            return stress_timespan_results
-
-        except Exception as e:
-            print(e)
-            raise e
-        
 
     def start_run(self, context: RunnerContext) -> None:
         """Perform any activity required for starting the run here.
@@ -220,6 +184,59 @@ class RunnerConfig:
         traffic_process = self.generate_load(self.app_data, scenario, user_load, f'{dir_path}/Locust_log')
 
 
+    def run_command_command(self, command):
+        start_time = time.time()
+        process = subprocess.Popen(command, shell=True)
+        process.wait()
+        end_time = time.time()
+        return start_time, end_time 
+
+    def run_stress(self, service_name):        
+        try:
+            # duration = self.stressor_data['duration']      
+            duration = 1
+            command = f'docker exec {service_name} sh -c "stress-ng --temp-path /tmp/ --timeout {str(duration * 60)}s'
+            print(f'Running {service_name}')
+            
+            cpu_load = self.stressor_data['resource_load']
+            resource_load = self.stressor_data['size']
+            workers = self.stressor_data['workers']
+            command += f' --cpu {workers} --cpu-load {cpu_load}'
+            command += f' --vm {workers} --vm-bytes {resource_load}'
+            command += f' --hdd {workers} --hdd-bytes {resource_load}"'
+                
+            stress_timespan_results = self.run_command_command(command)
+
+            print(f"Timespan results {stress_timespan_results}")
+            return stress_timespan_results
+
+        except Exception as e:
+            print(e)
+            raise e
+        
+    def get_system_metrics(self, app_data, treatment_results, path):
+        print('\033[92m' + 'Gathering Data...' + '\033[0m')
+
+        start_time, end_time = treatment_results
+        print(f"Start time: {start_time} End time: {end_time}")
+
+        output_file = os.path.join(path, 'metrics.csv')
+
+        script_path = f"../vuDevOps/data_collection{app_data['metrics']['script']}"
+        command = (
+            f"python3 {script_path} " 
+            f"--ip {app_data['metrics']['prometheus_url']} "
+            f"--start {start_time} "
+            f"--end {end_time} "
+            f"--output {output_file}"
+        )
+        
+        p = subprocess.Popen(command, shell=True)
+        p.wait()
+        
+        print('\033[92m' + f'Data Collected and available at {path}' + '\033[0m')
+        
+        
     def start_measurement(self, context: RunnerContext) -> None:
         """Perform any activity required for starting measurements."""
         output.console_log("Config.start_measurement() called!")
@@ -230,7 +247,13 @@ class RunnerConfig:
         user_load = context.run_variation['user_load']
         repetition = context.run_variation['repetition_id']
 
-        treatment_results = self.run_stress(service_stressed)        
+        base_dir = Path('../vuDevOps/data_collection/sockshop-data')
+
+        dir_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}'
+
+        treatment_results = self.run_stress(service_stressed)   
+
+        self.get_system_metrics(self.app_data, treatment_results, dir_path)     
 
 
     def interact(self, context: RunnerContext) -> None:

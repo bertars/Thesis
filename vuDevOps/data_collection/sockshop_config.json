@@ -5,7 +5,7 @@
   "load_script": "/load-test/runLocust.sh",
   "cooldown_duration": 2,
   "metrics": {
-    "script": "./metrics/get_metrics.py",
+    "script": "/metrics/get_metrics.py",
     "prometheus_url": "145.108.225.7:30000",
     "output_location": "./sockshop-data"
   }
