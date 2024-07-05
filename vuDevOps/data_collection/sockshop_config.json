@@ -7,6 +7,6 @@
   "metrics": {
     "script": "/metrics/get_metrics.py",
     "prometheus_url": "145.108.225.7:30000",
-    "output_location": "./sockshop-data"
+    "output_location": "/sockshop-data"
   }
 }

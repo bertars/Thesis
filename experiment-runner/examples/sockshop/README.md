@@ -8,9 +8,9 @@ A simple example that just prints on each event. This examples serves as an equi
 From the root directory of the repo, run the following command:
 
 ```bash
-python experiment-runner/ examples/hello-world/RunnerConfig.py
+python3 experiment-runner/ examples/sockshop/RunnerConfig.py
 ```
 
 ## Results
 
-The results are generated in the `examples/hello-world/experiments` folder.
+The results are generated in the `examples/sockshop/experiments` folder.
