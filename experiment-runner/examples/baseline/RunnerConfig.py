@@ -290,9 +290,11 @@ class RunnerConfig:
 
         locust_process_name = "locust"
         locust_script_process_name = "runLocust.sh"
+        ts_locust_script_process_name = "runTrainTicketLocust.sh"
         
         subprocess.run(["sudo", "killall", locust_process_name], check=False)
         subprocess.run(["sudo", "killall", locust_script_process_name], check=False)
+        subprocess.run(["sudo", "killall", ts_locust_script_process_name], check=False)
 
         
         # Shhhh the serer is resting
@@ -420,20 +422,20 @@ class RunnerConfig:
 
         if self.system == 'sockshop':
             output.console_log("Stopping sockshop...")
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.yml down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
             p.wait()
 
         if self.system == 'trainticket':
             output.console_log("Stopping trainticket...")
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml stop', shell=True)
+            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
             p.wait()
 
         print('\033[92m' + 'Experiment is Complete! WOOHOO! 🚀' + '\033[0m')
