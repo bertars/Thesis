@@ -1,0 +1,6 @@
+pandas==1.5.3
+numpy==1.23.5
+seaborn==0.13.0
+tensorflow==2.15.0
+
+
