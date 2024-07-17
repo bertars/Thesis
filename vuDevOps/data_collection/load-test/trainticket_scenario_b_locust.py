@@ -12,28 +12,82 @@ class BookTicketUserBehavior(TaskSet):
         super().__init__(parent)
         self.username = "fdse_microservice"
         self.password = "111111"
+        self.gender = 0
+        self.documentType = 1
+        self.documentNum = ""
+        self.email = ""
         self.bearer = ""
         self.user_id = ""
         self.host = "http://145.108.225.16:8080"
         self.contactid = ""
         self.orderid = ""
         self.paid_orderid = ""
-        self.trip_id = "G1234"
+        self.trip_id = "D1345"
         self.start_station = "Shang Hai"
         self.terminal_station = "Su Zhou"
 
+    def addUser(self):
+        self.client.get(url="/adminlogin.html")
+        headers = {"Accept": "application/json, text/plain, */*",
+                "Content-Type": "application/json;charset=utf-8"
+        }
+        body = {
+            "username":"admin",
+            "password":"222222"
+        }
 
+        response = self.client.post(url ="/api/v1/users/login",
+                                    headers = headers,
+                                    json = body)
+
+        if response.status_code == 200:
+            try:
+                response_as_json = response.json()["data"]
+                token = response_as_json["token"]
+                self.bearer = "Bearer " + token
+                self.user_id = response_as_json["userId"]
+                # print("Logged in successfully!")
+
+                header2 = {"Accept" : "application/json, text/plain, */*",
+                           "Authorization": self.bearer}
+                self.client.get(url= "/api/v1/adminorderservice/adminorder", 
+                                headers = header2)
+                self.client.get(url="/api/v1/adminuserservice/users",
+                                headers= header2)
+                
+                header3 = {"Accept" : "application/json, text/plain, */*",
+                           "Content-Type" : "application/json;charset=utf-8",
+                           "Authorization": self.bearer}
+                new_user = {"username":self.username,"password":self.password,"gender":self.gender,"email":self.email,"documentType":self.documentType,"documentNum":self.documentNum}
+                
+                response = self.client.post(url="/api/v1/adminuserservice/users",
+                                 headers = header3,
+                                 json= new_user)
+                self.client.get(url="/admin_user.html")
+                self.client.get(url="/api/v1/adminuserservice/users",
+                                headers=header2)
+
+            except (ValueError, KeyError) as e:
+                # print(f"Error parsing login response: {e}, {response.text}")
+                return
+            
 
     def login(self):
         # Perform login and store the token
-        print("Trying to log in...")
+        # print("Trying to log in...")
+        self.client.get(url="/client_login.html")
 
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json"
+        verifycode_header = {"Accept" : "image/avif,image/webp,*/*"}
+        self.client.get(url="/api/v1/verifycode/generate",
+                        headers = verifycode_header)
+
+        login_headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                         "X-Requested-With" : "XMLHttpRequest",
+                         "Content-Type": "application/json"
         }
-
+        
         response = self.client.post(url="/api/v1/users/login",
-                                 headers=headers,
+                                 headers=login_headers,
                                  json={
                                      "username": self.username,
                                      "password": self.password,
@@ -42,18 +96,25 @@ class BookTicketUserBehavior(TaskSet):
         if response.status_code == 200:
             try:
                 response_as_json = response.json()["data"]
-                token = response_as_json["token"]
-                self.bearer = "Bearer " + token
-                self.user_id = response_as_json["userId"]
-                print("Logged in successfully!")
+                if response_as_json is not None:
+                    token = response_as_json["token"]
+                    self.bearer = "Bearer " + token
+                    self.user_id = response_as_json["userId"]
+                    print("Logged in successfully!")
             except (ValueError, KeyError) as e:
-                print(f"Error parsing login response: {e}, {response.text}")
-        else:
-            print(f"Failed to login: {response.status_code}, {response.text}")
+                # print(f"Error parsing login response: {e}, {response.text}")
+                return
 
     def search_ticket(self, date):
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json"}
+        self.client.get(url="/index.html")
+
+        verifycode_header = {"Accept" : "image/avif,image/webp,*/*"}
+        self.client.get(url="/api/v1/verifycode/generate",
+                        headers = verifycode_header)
+
+        headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                   "X-Requested-With" : "XMLHttpRequest",
+                   "Content-Type": "application/json"}
         body = {
             "departureTime": date,
             "endPlace": "Shang Hai",
@@ -69,62 +130,72 @@ class BookTicketUserBehavior(TaskSet):
             try:
                 data = response.json()["data"]
                 if not data:
-                    print("No data from travelservice, trying travel2service")
+                    # print("No data from travelservice, trying travel2service")
                     response = self.client.post(
                         url="/api/v1/travel2service/trips/left",
                         headers=headers,
                         json=body)
                     data = response.json()["data"]
 
-                print(json.dumps(data))
+                # print(json.dumps(data))
                 if data is not None:
                     for res in data:
                         self.trip_id = res["tripId"]["type"] + res["tripId"]["number"]
                         self.start_station = res["startingStation"]
                         self.terminal_station = res["terminalStation"]
             except (ValueError, KeyError) as e:
-                print(f"Error parsing search ticket response: {e}")
-        else:
-            print(f"Failed to search tickets: {response.status_code}, {response.text}")
+                # print(f"Error parsing search ticket response: {e}")
+                return
+        # else:
+        #     # print(f"Failed to search tickets: {response.status_code}, {response.text}")
+        #     return
 
     def start_booking(self, date):
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json", "Authorization": self.bearer}
+        headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+                "Content-Type": "application/json"}
         response = self.client.get(
             url="/client_ticket_book.html?tripId=" + self.trip_id + "&from=" + self.start_station + "&to=" + self.terminal_station + "&seatType=2&seat_price=50.0" + "&date=" + date,
             headers=headers)
-        if response.status_code == 200:
-            print("Starting booking process...")
-        else:
-            print(f"Failed to go to booking page: {response.status_code}, {response.text}")
+        # if response.status_code != 200:
+        #     print(f"Failed to go to booking page: {response.status_code}, {response.text}")
+        #     return
+            
 
     def select_contact(self):
-        head = {"Accept": "application/json",
+        head = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                "X-Requested-With" : "XMLHttpRequest",
                 "Content-Type": "application/json", "Authorization": self.bearer}
         response = self.client.get(
             url="/api/v1/contactservice/contacts/account/" + self.user_id,
             headers=head)
         # print(response.json())
-        data = response.json()["data"]
-        # print(json.dumps(data))
-        if len(data) == 0:
-            response = self.client.post(
-                url="/api/v1/contactservice/contacts",
-                headers=head,
-                json={
-                    "name": self.user_id, "accountId": self.user_id, "documentType": "1",
-                    "documentNumber": self.user_id, "phoneNumber": "123456"})
+        if response.status_code == 200:
+            try:
+                data = response.json()["data"]
+                # print(json.dumps(data))
+                if len(data) == 0:
+                    response = self.client.post(
+                        url="/api/v1/contactservice/contacts",
+                        headers=head,
+                        json={
+                            "name": self.user_id, "accountId": self.user_id, "documentType": "1",
+                            "documentNumber": "P", "phoneNumber": "1321"})
 
-            data = response.json()["data"]
-            self.contactid = data["id"]
-        else:
-            self.contactid = data[0]["id"]
+                    data = response.json()["data"]
+                    self.contactid = data["id"]
+                else:
+                    self.contactid = data[0]["id"]
+            #       print(self.contactid)
+            except Exception as e:
+                # print(f"Error processing JSON data: {e}")
+                # print(f"Response content: {response.text}")
+                return
 
-        # print(self.contactid)
 
     def finish_booking(self, date):
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json", "Authorization": self.bearer}
+        headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                   "X-Requested-With" : "XMLHttpRequest",
+                   "Content-Type": "application/json", "Authorization": self.bearer}
         body = {
             "accountId": self.user_id,
             "contactsId": self.contactid,
@@ -133,8 +204,8 @@ class BookTicketUserBehavior(TaskSet):
             "date": date,
             "from": self.start_station,
             "to": self.terminal_station,
-            "assurance": "0",
-            "foodType": 1,
+            "assurance": "1",
+            "foodType": 2,
             "foodName": "Bone Soup",
             "foodPrice": 2.5,
             "stationName": "",
@@ -142,13 +213,13 @@ class BookTicketUserBehavior(TaskSet):
         }
 
         response = self.client.post(
-            url=self.host + "/api/v1/preserveservice/preserve",
+            url="/api/v1/preserveservice/preserve",
             headers=headers,
             json=body)
-        if response.status_code == 200:
-            print("Booking successful!")
-        else:
-            print(f"Failed to finish booking: {response.status_code}, {response.text}")
+        # if response.status_code == 200:
+        #     print("Booking successful!")
+        # else:
+        #     print(f"Failed to finish booking: {response.status_code}, {response.text}")
     
     def order(self):
         headers = {"Accept": "application/json",
@@ -162,21 +233,42 @@ class BookTicketUserBehavior(TaskSet):
                 "enableBoughtDateQuery": "false", "travelDateStart": "null", "travelDateEnd": "null",
                 "boughtDateStart": "null", "boughtDateEnd": "null"})
 
-        data = response.json()["data"]
-        # print(data)
         if response.status_code == 200:
-            print("Order successful!")
-    
-        for orders in data:
-            if orders["status"] == 1:
-                self.paid_orderid = orders["id"]
-                break
-        for orders in data:
-            if orders["status"] == 0:
-                self.orderid = orders["id"]
+            try:
+                data = response.json()["data"]
+                # print(data)
+                # if response.status_code == 200:
+                #     print("Order successful!")
+            
+                for orders in data:
+                    if orders["status"] == 1:
+                        self.paid_orderid = orders["id"]
+                        break
+                for orders in data:
+                    if orders["status"] == 0:
+                        self.orderid = orders["id"]
+            except Exception as e:
+                # print(f"Error processing JSON data: {e}")
+                # print(f"Response content: {response.text}")
+                return
 
     @task
     def browse_tickets(self):
+        self.username = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
+        # print(self.username)
+        self.password = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
+        # print(self.password)
+        self.gender = random.randint(0,1)
+        # print(self.gender)
+        self.documentType = random.randint(0,1)
+        # print(self.documentType)
+        self.documentNum = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
+        # print(self.documentNum)
+        self.email = ''.join(random.choice(string.ascii_uppercase) for _ in range(4)) + '@gmail.com'
+        # print(self.email)
+        
+        self.addUser()
+        
         self.login()
 
         today = datetime.today()
@@ -194,5 +286,5 @@ class BookTicketUserBehavior(TaskSet):
         self.order()
         
 
-class TrainTicketUser(HttpUser):
+class Web(HttpUser):
     tasks = [BookTicketUserBehavior]
