@@ -22,7 +22,7 @@ import json
 import os 
 import signal
 
-WARMUP = 0
+WARMUP = 3
 
 class RunnerConfig:
     ROOT_DIR = Path(dirname(realpath(__file__)))
@@ -78,11 +78,11 @@ class RunnerConfig:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
         representing each run performed"""
         factor1 = FactorModel("scenario", ['scenario_A', 'scenario_B'])
-        factor2 = FactorModel("anomaly_type", ['resource', 'time'])
-        factor3 = FactorModel("service_stressed", ['orders', 'front-end'])
-        factor4 = FactorModel("user_load", [100, 1000])
-        repetitions = FactorModel("repetition_id", [1])
-        # repetitions = FactorModel("repetition_id", list(range(1, 31)))
+        # factor2 = FactorModel("anomaly_type", ['resource', 'time'])
+        factor2 = FactorModel("service_stressed", ['orders', 'front-end'])
+        factor3 = FactorModel("user_load", [100, 1000])
+        # repetitions = FactorModel("repetition_id", [1])
+        repetitions = FactorModel("repetition_id", list(range(1, 31)))
 
         services = [
             'front-end', 'catalogue', 'catalogue-db', 'carts', 'carts-db',
@@ -93,7 +93,7 @@ class RunnerConfig:
         data_columns = [f"{service}_{metric}" for metric in metrics for service in services]
         
         self.run_table_model = RunTableModel(
-        factors=[factor1, factor2, factor3, factor4, repetitions],
+        factors=[factor1, factor2, factor3, repetitions],
         exclude_variations=[
             # {factor1: ['example_treatment1']},                   # all runs having treatment "example_treatment1" will be excluded
             # {factor1: ['example_treatment2'], factor2: [True]},  # all runs having the combination ("example_treatment2", True) will be excluded
@@ -161,11 +161,10 @@ class RunnerConfig:
         self.install_stress_ng(service_stressed)
 
         scenario = context.run_variation['scenario']
-        anomaly = context.run_variation['anomaly_type']
         user_load = context.run_variation['user_load']
         repetition = context.run_variation['repetition_id']
 
-        print(f'Current treatment {scenario} - {anomaly} - {service_stressed} - {user_load} - {repetition}')
+        print(f'Current treatment {scenario} - anomalous - {service_stressed} - {user_load} - {repetition}')
 
         base_dir = Path('../vuDevOps/data_collection/sockshop-data')
 
@@ -173,7 +172,7 @@ class RunnerConfig:
         os.makedirs(base_dir, exist_ok=True)
 
         # Create the directory path
-        dir_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}'
+        dir_path = base_dir / scenario / 'anomalous' / service_stressed / str(user_load) / f'repetition_{repetition}'
     
         # Create the directories
         os.makedirs(dir_path, exist_ok=True)
@@ -195,8 +194,8 @@ class RunnerConfig:
 
     def run_stress(self, service_name):        
         try:
-            # duration = self.stressor_data['duration']      
-            duration = 1
+            duration = self.stressor_data['duration']      
+            # duration = 1
             command = f'docker exec {service_name} sh -c "stress-ng --temp-path /tmp/ --timeout {str(duration * 60)}s'
             print(f'Running {service_name}')
             
@@ -245,13 +244,12 @@ class RunnerConfig:
         # Run stress and collect metrics 
         service_stressed = context.run_variation['service_stressed']
         scenario = context.run_variation['scenario']
-        anomaly = context.run_variation['anomaly_type']
         user_load = context.run_variation['user_load']
         repetition = context.run_variation['repetition_id']
 
         base_dir = Path('../vuDevOps/data_collection/sockshop-data')
 
-        dir_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}'
+        dir_path = base_dir / scenario / 'anomalous' / service_stressed / str(user_load) / f'repetition_{repetition}'
 
         treatment_results = self.run_stress(service_stressed)   
 
@@ -266,8 +264,8 @@ class RunnerConfig:
     def run_cooldown(self, app_data, traffic_process):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print('\033[92m' + "Starting cooldown script" + '\033[0m')
-        # duration = app_data['cooldown_duration']
-        duration = 1
+        duration = app_data['cooldown_duration']
+        # duration = 1
 
         # Terminate locust subprocess
         print('\033[92m' + f"Terminating Load Generation for {traffic_process.pid} at {timestamp}" + '\033[0m')
@@ -319,13 +317,12 @@ class RunnerConfig:
 
         service_stressed = context.run_variation['service_stressed']
         scenario = context.run_variation['scenario']
-        anomaly = context.run_variation['anomaly_type']
         user_load = context.run_variation['user_load']
         repetition = context.run_variation['repetition_id']
 
         base_dir = Path('../vuDevOps/data_collection/sockshop-data')
 
-        metrics_path = base_dir / scenario / anomaly / service_stressed / str(user_load) / f'repetition_{repetition}' / 'metrics.csv'
+        metrics_path = base_dir / scenario / 'anomalous' / service_stressed / str(user_load) / f'repetition_{repetition}' / 'metrics.csv'
 
         metrics_df = pd.read_csv(metrics_path)
 

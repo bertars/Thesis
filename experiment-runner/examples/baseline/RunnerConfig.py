@@ -22,8 +22,8 @@ import json
 import os 
 import signal
 
-WARMUP = 0
-DURATION = 1
+WARMUP = 3
+DURATION = 5
 
 class RunnerConfig:
     ROOT_DIR = Path(dirname(realpath(__file__)))
@@ -84,12 +84,12 @@ class RunnerConfig:
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
         representing each run performed"""
-        factor1 = FactorModel("system", ['trainticket'])
+        factor1 = FactorModel("system", ['sockshop'])
         # factor1 = FactorModel("system", ['sockshop', 'trainticket'])
         factor2 = FactorModel("scenario", ['scenario_A', 'scenario_B'])
         factor3 = FactorModel("user_load", [100, 1000])
-        repetitions = FactorModel("repetition_id", [1])
-        # repetitions = FactorModel("repetition_id", list(range(1, 31)))
+        # repetitions = FactorModel("repetition_id", [1])
+        repetitions = FactorModel("repetition_id", list(range(1, 31)))
 
         services = [
             'front-end', 'catalogue', 'catalogue-db', 'carts', 'carts-db',
@@ -152,12 +152,12 @@ class RunnerConfig:
             
             process = None
                 
-            user_spawn_rate = 1
+            user_spawn_rate = user_count * 0.1
             script_path = f"../vuDevOps/data_collection{app_data['load_script']}"
             subprocess.run(["chmod", "+x", script_path], check=True)
             process =  subprocess.Popen(f"{script_path} -h {app_data['host_url']} -r {int(100)}s -l {log_file} -u {user_count} -s {user_spawn_rate} -n {scenario}", shell=True, preexec_fn=os.setsid)
             # Locust needs a few seconds to deploy all traffic
-            time.sleep(2)
+            time.sleep(10)
             return process    
 
 
@@ -280,8 +280,8 @@ class RunnerConfig:
     def run_cooldown(self, app_data, traffic_process):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print('\033[92m' + "Starting cooldown script" + '\033[0m')
-        # duration = app_data['cooldown_duration']
-        duration = 1
+        duration = app_data['cooldown_duration']
+        # duration = 1
 
         # Terminate locust subprocess
         print('\033[92m' + f"Terminating Load Generation for {traffic_process.pid} at {timestamp}" + '\033[0m')

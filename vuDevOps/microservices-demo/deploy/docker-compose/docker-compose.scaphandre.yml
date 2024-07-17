@@ -4,6 +4,9 @@ services:
   scaphandre:
     image: hubblo/scaphandre
     container_name: scaphandre
+    restart: unless-stopped
+    deploy:
+      mode: global
     privileged: true
     ports: 
       - 8081:8080
