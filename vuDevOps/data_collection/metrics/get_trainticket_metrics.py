@@ -10,11 +10,11 @@ MAX_RESOLUTION = 11_000  # Maximum resolution of Prometheus
 DURATION = "1m"
 
 QUERIES = {
-    "cpu": f"sum(rate(container_cpu_usage_seconds_total[{DURATION}])) by (name)",
-    "memory": f"sum(rate(container_memory_usage_bytes[{DURATION}])) by (name)",
-    "memory_rss": f"sum(rate(container_memory_rss[{DURATION}])) by (name)",
-    "memory_cache": f"sum(rate(container_memory_cache[{DURATION}])) by (name)",
-    "disk": f"sum(rate(container_fs_reads_bytes_total[{DURATION}])) by (name)", # Total bytes read by the container
+    "cpu": f"sum(rate(container_cpu_usage_seconds_total[{DURATION}])) by (container_label_com_docker_compose_service)",
+    "memory": f"sum(rate(container_memory_usage_bytes[{DURATION}])) by (container_label_com_docker_compose_service)",
+    "memory_rss": f"sum(rate(container_memory_rss[{DURATION}])) by (container_label_com_docker_compose_service)",
+    "memory_cache": f"sum(rate(container_memory_cache[{DURATION}])) by (container_label_com_docker_compose_service)",
+    "disk": f"sum(rate(container_fs_reads_bytes_total[{DURATION}])) by (container_label_com_docker_compose_service)", # Total bytes read by the container
     "power": f"sum(rate(scaph_process_power_consumption_microwatts[{DURATION}])) by (container_label_com_docker_compose_service) / 1000000",
     
 }

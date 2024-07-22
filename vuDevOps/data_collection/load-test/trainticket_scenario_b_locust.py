@@ -58,14 +58,15 @@ class BookTicketUserBehavior(TaskSet):
                 header3 = {"Accept" : "application/json, text/plain, */*",
                            "Content-Type" : "application/json;charset=utf-8",
                            "Authorization": self.bearer}
-                new_user = {"username":self.username,"password":self.password,"gender":self.gender,"email":self.email,"documentType":self.documentType,"documentNum":self.documentNum}
+                new_user = {"userName":self.username,"password":self.password,"gender":self.gender,"email":self.email,"documentType":self.documentType,"documentNum":self.documentNum}
                 
                 response = self.client.post(url="/api/v1/adminuserservice/users",
                                  headers = header3,
                                  json= new_user)
+                    
                 self.client.get(url="/admin_user.html")
                 self.client.get(url="/api/v1/adminuserservice/users",
-                                headers=header2)
+                                headers=header2)               
 
             except (ValueError, KeyError) as e:
                 # print(f"Error parsing login response: {e}, {response.text}")
@@ -100,7 +101,7 @@ class BookTicketUserBehavior(TaskSet):
                     token = response_as_json["token"]
                     self.bearer = "Bearer " + token
                     self.user_id = response_as_json["userId"]
-                    print("Logged in successfully!")
+                    # print("Logged in successfully!")
             except (ValueError, KeyError) as e:
                 # print(f"Error parsing login response: {e}, {response.text}")
                 return
@@ -117,8 +118,8 @@ class BookTicketUserBehavior(TaskSet):
                    "Content-Type": "application/json"}
         body = {
             "departureTime": date,
-            "endPlace": "Shang Hai",
-            "startingPlace": "Su Zhou"
+            "endPlace": self.terminal_station,
+            "startingPlace": self.start_station
         }
         
         response = self.client.post(
@@ -137,7 +138,7 @@ class BookTicketUserBehavior(TaskSet):
                         json=body)
                     data = response.json()["data"]
 
-                # print(json.dumps(data))
+                print(json.dumps(data))
                 if data is not None:
                     for res in data:
                         self.trip_id = res["tripId"]["type"] + res["tripId"]["number"]
@@ -178,7 +179,7 @@ class BookTicketUserBehavior(TaskSet):
                         url="/api/v1/contactservice/contacts",
                         headers=head,
                         json={
-                            "name": self.user_id, "accountId": self.user_id, "documentType": "1",
+                            "name": self.username, "accountId": self.user_id, "documentType": "1",
                             "documentNumber": "P", "phoneNumber": "1321"})
 
                     data = response.json()["data"]
@@ -191,8 +192,9 @@ class BookTicketUserBehavior(TaskSet):
                 # print(f"Response content: {response.text}")
                 return
 
-
     def finish_booking(self, date):
+        # assurance = self.client.get(url)
+
         headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
                    "X-Requested-With" : "XMLHttpRequest",
                    "Content-Type": "application/json", "Authorization": self.bearer}
@@ -211,13 +213,16 @@ class BookTicketUserBehavior(TaskSet):
             "stationName": "",
             "storeName": ""
         }
-
+        # print(self.username)
+        # print(self.user_id)
+        # print(self.trip_id)
+        # print(self.bearer)
         response = self.client.post(
             url="/api/v1/preserveservice/preserve",
             headers=headers,
             json=body)
-        # if response.status_code == 200:
-        #     print("Booking successful!")
+        if response.status_code == 200:
+            print("Booking successful!")
         # else:
         #     print(f"Failed to finish booking: {response.status_code}, {response.text}")
     
@@ -255,17 +260,11 @@ class BookTicketUserBehavior(TaskSet):
     @task
     def browse_tickets(self):
         self.username = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
-        # print(self.username)
         self.password = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
-        # print(self.password)
         self.gender = random.randint(0,1)
-        # print(self.gender)
         self.documentType = random.randint(0,1)
-        # print(self.documentType)
         self.documentNum = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
-        # print(self.documentNum)
         self.email = ''.join(random.choice(string.ascii_uppercase) for _ in range(4)) + '@gmail.com'
-        # print(self.email)
         
         self.addUser()
         

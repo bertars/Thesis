@@ -20,17 +20,68 @@ class TrainTicketUserBehavior(TaskSet):
         self.orderid = ""
         self.paid_orderid = ""
 
+    def addUser(self):
+        self.client.get(url="/adminlogin.html")
+        headers = {"Accept": "application/json, text/plain, */*",
+                "Content-Type": "application/json;charset=utf-8"
+        }
+        body = {
+            "username":"admin",
+            "password":"222222"
+        }
+
+        response = self.client.post(url ="/api/v1/users/login",
+                                    headers = headers,
+                                    json = body)
+
+        if response.status_code == 200:
+            try:
+                response_as_json = response.json()["data"]
+                token = response_as_json["token"]
+                self.bearer = "Bearer " + token
+                self.user_id = response_as_json["userId"]
+                # print("Logged in successfully!")
+
+                header2 = {"Accept" : "application/json, text/plain, */*",
+                           "Authorization": self.bearer}
+                self.client.get(url= "/api/v1/adminorderservice/adminorder", 
+                                headers = header2)
+                self.client.get(url="/api/v1/adminuserservice/users",
+                                headers= header2)
+                
+                header3 = {"Accept" : "application/json, text/plain, */*",
+                           "Content-Type" : "application/json;charset=utf-8",
+                           "Authorization": self.bearer}
+                new_user = {"userName":self.username,"password":self.password,"gender":self.gender,"email":self.email,"documentType":self.documentType,"documentNum":self.documentNum}
+                
+                response = self.client.post(url="/api/v1/adminuserservice/users",
+                                 headers = header3,
+                                 json= new_user)
+                    
+                self.client.get(url="/admin_user.html")
+                self.client.get(url="/api/v1/adminuserservice/users",
+                                headers=header2)               
+
+            except (ValueError, KeyError) as e:
+                # print(f"Error parsing login response: {e}, {response.text}")
+                return
 
     def login(self):
         # Perform login and store the token
-        print("Trying to log in...")
+        # print("Trying to log in...")
+        self.client.get(url="/client_login.html")
 
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json"
+        verifycode_header = {"Accept" : "image/avif,image/webp,*/*"}
+        self.client.get(url="/api/v1/verifycode/generate",
+                        headers = verifycode_header)
+
+        login_headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                         "X-Requested-With" : "XMLHttpRequest",
+                         "Content-Type": "application/json"
         }
-
+        
         response = self.client.post(url="/api/v1/users/login",
-                                 headers=headers,
+                                 headers=login_headers,
                                  json={
                                      "username": self.username,
                                      "password": self.password,
@@ -39,20 +90,28 @@ class TrainTicketUserBehavior(TaskSet):
         if response.status_code == 200:
             try:
                 response_as_json = response.json()["data"]
-                token = response_as_json["token"]
-                self.bearer = "Bearer " + token
-                self.user_id = response_as_json["userId"]
-                print("Logged in successfully!")
+                if response_as_json is not None:
+                    token = response_as_json["token"]
+                    self.bearer = "Bearer " + token
+                    self.user_id = response_as_json["userId"]
+                    # print("Logged in successfully!")
             except (ValueError, KeyError) as e:
-                print(f"Error parsing login response: {e}, {response.text}")
-        else:
-            print(f"Failed to login: {response.status_code}, {response.text}")
+                # print(f"Error parsing login response: {e}, {response.text}")
+                return
 
     def search_ticket(self, date):
         stations = ["Shang Hai", "Tai Yuan", "Nan Jing", "Wu Xi", "Su Zhou"]
         from_station, to_station = random.sample(stations, 2)
-        headers = {"Accept": "application/json",
-                "Content-Type": "application/json"}
+        
+        self.client.get(url="/index.html")
+
+        verifycode_header = {"Accept" : "image/avif,image/webp,*/*"}
+        self.client.get(url="/api/v1/verifycode/generate",
+                        headers = verifycode_header)
+
+        headers = {"Accept": "application/json, text/javascript, */*; q=0.01",
+                   "X-Requested-With" : "XMLHttpRequest",
+                   "Content-Type": "application/json"}
         body = {
             "departureTime": date,
             "endPlace": to_station,
@@ -68,27 +127,36 @@ class TrainTicketUserBehavior(TaskSet):
             try:
                 data = response.json()["data"]
                 if not data:
-                    print("No data from travelservice, trying travel2service")
+                    # print("No data from travelservice, trying travel2service")
                     response = self.client.post(
                         url="/api/v1/travel2service/trips/left",
                         headers=headers,
                         json=body)
                     data = response.json()["data"]
-                print(from_station, to_station, date)
-                print(json.dumps(data))
+                # print(from_station, to_station, date)
+                # print(json.dumps(data))
                 if data is not None:
                     for res in data:
                         self.trip_id = res["tripId"]["type"] + res["tripId"]["number"]
                         self.start_station = res["startingStation"]
                         self.terminal_station = res["terminalStation"]
             except (ValueError, KeyError) as e:
-                print(f"Error parsing search ticket response: {e}")
-        else:
-            print(f"Failed to search tickets: {response.status_code}, {response.text}")
+                # print(f"Error parsing search ticket response: {e}")
+                return
+        # else:
+        #     print(f"Failed to search tickets: {response.status_code}, {response.text}")
 
 
     @task
     def browse_tickets(self):
+        self.username = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
+        self.password = ''.join(random.choice(string.ascii_uppercase) for _ in range(6))
+        self.gender = random.randint(0,1)
+        self.documentType = random.randint(0,1)
+        self.documentNum = ''.join(random.choice(string.ascii_uppercase) for _ in range(4))
+        self.email = ''.join(random.choice(string.ascii_uppercase) for _ in range(4)) + '@gmail.com'
+        
+        self.addUser()
         self.login()
 
         today = datetime.today()
@@ -101,6 +169,6 @@ class TrainTicketUserBehavior(TaskSet):
             time.sleep(wait_time)
 
 
-class TrainTicketUser(HttpUser):
+class Web(HttpUser):
     tasks = [TrainTicketUserBehavior]
    
