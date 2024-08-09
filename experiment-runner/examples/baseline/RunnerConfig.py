@@ -84,7 +84,7 @@ class RunnerConfig:
     def create_run_table_model(self) -> RunTableModel:
         """Create and return the run_table model here. A run_table is a List (rows) of tuples (columns),
         representing each run performed"""
-        factor1 = FactorModel("system", ['sockshop'])
+        factor1 = FactorModel("system", ['trainticket'])
         # factor1 = FactorModel("system", ['sockshop', 'trainticket'])
         factor2 = FactorModel("scenario", ['scenario_A', 'scenario_B'])
         factor3 = FactorModel("user_load", [100, 1000])
@@ -117,7 +117,7 @@ class RunnerConfig:
         metrics = ['avg_cpu', 'avg_mem', 'avg_mem_rss', 'avg_mem_cache', 'avg_disk', 'avg_power']
         data_columns = [f"{service}_{metric}" for metric in metrics for service in services]
 
-        print(f"Generated data columns (total {len(data_columns)}): {len(set(data_columns))}")
+        # print(f"Generated data columns (total {len(data_columns)}): {len(set(data_columns))}")
         
         self.run_table_model = RunTableModel(
             factors=[factor1, factor2, factor3, repetitions],
@@ -152,7 +152,8 @@ class RunnerConfig:
             
             process = None
                 
-            user_spawn_rate = user_count * 0.1
+            # user_spawn_rate = user_count * 0.1
+            user_spawn_rate = 5
             script_path = f"../vuDevOps/data_collection{app_data['load_script']}"
             subprocess.run(["chmod", "+x", script_path], check=True)
             process =  subprocess.Popen(f"{script_path} -h {app_data['host_url']} -r {int(100)}s -l {log_file} -u {user_count} -s {user_spawn_rate} -n {scenario}", shell=True, preexec_fn=os.setsid)
@@ -183,11 +184,11 @@ class RunnerConfig:
             app_data = self.sock_app_data
         if system == 'trainticket':
             output.console_log("Bringing trainticket up...")
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml up -d', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml up -d', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env up -d', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env up -d', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml up -d', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml up -d', shell=True)
             p.wait()
 
             app_data = self.ts_app_data
@@ -334,11 +335,11 @@ class RunnerConfig:
 
         if self.system == 'trainticket':
             output.console_log("Stopping trainticket...")
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml stop', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env stop', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml stop', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
             p.wait()
 
     def populate_run_data(self, context: RunnerContext) -> Optional[Dict[str, Any]]:
@@ -431,11 +432,11 @@ class RunnerConfig:
 
         if self.system == 'trainticket':
             output.console_log("Stopping trainticket...")
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.cadvisor.yml down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env down', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.trainticket.yml --env-file ../vuDevOps/microservices-demo/.env down', shell=True)
             p.wait()
-            p = subprocess.Popen('docker-compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
+            p = subprocess.Popen('docker compose -f ../vuDevOps/microservices-demo/deploy/docker-compose/docker-compose.scaphandre.yml down', shell=True)
             p.wait()
 
         print('\033[92m' + 'Experiment is Complete! WOOHOO! 🚀' + '\033[0m')

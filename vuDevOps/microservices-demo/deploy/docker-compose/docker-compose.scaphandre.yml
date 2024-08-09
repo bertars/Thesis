@@ -9,7 +9,7 @@ services:
       mode: global
     privileged: true
     ports: 
-      - 8081:8080
+      - 10684:8080
     volumes:
       - type: bind
         source: /proc

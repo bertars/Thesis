@@ -1,0 +1,5 @@
+Method,Name,Error,Occurrences
+GET,/adminlogin.html,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/index.html,RemoteDisconnected('Remote end closed connection without response'),17
+GET,/index.html,"ConnectionResetError(104, 'Connection reset by peer')",11
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),3

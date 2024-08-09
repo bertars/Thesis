@@ -1,0 +1,14 @@
+Method,Name,Error,Occurrences
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/e6beb16b-107c-4e5b-b38b-aa7f194e3b8f,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-09,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/adminlogin.html,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/fdfeb67b-0f1e-4ae5-9770-984023b04646,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/99088a44-2bdd-46ce-ac60-ca8db6fb0ace,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/89d7f9fa-e978-49d9-8f23-a8fa64289900,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5472
+GET,/api/v1/adminuserservice/users,"ChunkedEncodingError(ProtocolError(""Connection broken: ConnectionResetError(104, 'Connection reset by peer')"", ConnectionResetError(104, 'Connection reset by peer')))",1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-09,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),1

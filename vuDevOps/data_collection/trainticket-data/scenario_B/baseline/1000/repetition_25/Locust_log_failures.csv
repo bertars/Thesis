@@ -1,0 +1,430 @@
+Method,Name,Error,Occurrences
+GET,/api/v1/contactservice/contacts/account/ca51da03-ecd2-467d-8fe3-4799a8df9842,RemoteDisconnected('Remote end closed connection without response'),4
+POST,/api/v1/travelservice/trips/left,RemoteDisconnected('Remote end closed connection without response'),5170
+GET,/api/v1/foodservice/foods/2024-08-09/Shang%20Hai/Su%20Zhou/D1345,"ConnectionResetError(104, 'Connection reset by peer')",71
+GET,/api/v1/contactservice/contacts/account/93a3761d-2938-4ea4-b47a-1bd39760f921,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/eb4f9397-4df6-410c-b923-44f561475411,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/49e81246-a2ea-4de5-938c-43635e786f75,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/8d72346f-a4ae-4a0e-9154-7bafbe952c5d,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/d6091bc2-bcc1-41e5-84d8-37188694398a,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/3d2b4bac-4f7d-4fd7-91a3-1e80551362e0,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c8d87180-befa-42f5-8bed-e153f030c6e7,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/f441f606-d3f7-465b-9fe9-32c0bbafb215,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/e6eb9051-68ae-49c7-845c-1be9b2940fbf,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/e76c7503-f876-4019-a3b6-7a78f0f0d5a0,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/5370b110-8ef9-4cbd-8b15-ab646c972309,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/b0d4e3c4-96b1-4a05-b3c4-5be18d32bf9d,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/56fc113b-be11-46f6-b600-b41dfa4e85ea,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/0aff0633-4a79-489a-9b6e-ae88d84b4490,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/6f7430ab-5bf3-4d48-a294-48dbe862bba0,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/5efb12e5-b586-4be9-ac37-982461f9246e,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/67a23148-5d2f-4134-ab34-13789ab6efbc,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/efaf4384-f555-4e92-af20-619487ea6999,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c6cc7ee5-e4f3-4425-babd-4a0c9884c80b,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/c30465a8-6459-48b8-8b3b-4ce6d8a2595f,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/a34b8e77-22d2-416c-8bd6-c315dc55b493,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/37a680e2-21eb-422a-85f7-073ed3d0d2bf,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/fdc46de5-af7a-42c1-aaf2-62e8170ddd05,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/22c0990e-dffd-4dc8-b8c8-e75caf472f1f,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/1ba44acc-4ffe-4a94-b23e-e8274d6aeaa3,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/e50a44e8-4a04-4ffa-9561-500d918d7288,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),4769
+GET,/api/v1/contactservice/contacts/account/24f84571-00e7-4522-86de-ee57f8a8d4a0,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/3aaff7ff-76e1-411a-ba8a-4cf277b0c6b5,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/97270b66-e7d3-4ee4-8e4a-ebfb9f798519,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/4ff54282-46fc-42c2-a28e-22069a07577f,RemoteDisconnected('Remote end closed connection without response'),19
+GET,/api/v1/contactservice/contacts/account/45f69ef7-4772-4626-84e7-8603914f10fe,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/32e04fbf-dbe9-4820-bb3a-51ab95e550a1,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f,RemoteDisconnected('Remote end closed connection without response'),592
+GET,/api/v1/contactservice/contacts/account/d8a493db-5617-4195-b214-5e4fbe4e292d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/4952d722-5a2c-4804-a46f-b2c07b324719,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/a9c15e59-18ec-4691-bec2-ad1819f6e7d1,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/84dff399-5fb9-469d-a686-5c6e35a6ec75,RemoteDisconnected('Remote end closed connection without response'),15
+GET,/api/v1/contactservice/contacts/account/1e51147c-e917-491e-b483-9d25c9452c61,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/411051cd-f25c-4267-95b4-8878f2669f3a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/0566c669-c360-4af9-bf43-22e560fc9189,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/00e08ff3-28d2-4826-8824-ed62f71e9f41,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/34d77117-4321-443a-8f52-d749bd242f7f,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/8d3bd604-400a-4800-83a0-7063c739d3ea,RemoteDisconnected('Remote end closed connection without response'),17
+GET,/api/v1/contactservice/contacts/account/b3e0d4c1-027b-41fd-a3cb-3e1ed5bafe57,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/0ab6479b-555a-4504-92e0-a9bf08a36487,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/2b9a6b94-812a-461b-970f-1bcb16aee92e,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/9a37bce2-5afe-426e-bc14-695a104f042b,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/34560499-6c14-450b-948b-01409ec99622,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/client_login.html,RemoteDisconnected('Remote end closed connection without response'),5201
+GET,/api/v1/contactservice/contacts/account/5eeac8d5-1e13-4f68-97cd-f9085ca5d76b,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/c1739378-af81-409a-852e-6a563a868764,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/f8084921-f86f-4cfc-b736-0fbf8f3630ff,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/f8cd9406-f9e8-4154-8f90-4470082f9581,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/c1b3e649-4477-4a49-8fb1-8076a6675f00,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/cf640590-18cf-4062-8464-482b22cf544e,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/36f4c426-d089-499b-b42b-05d0c4c665eb,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/eb409f96-0418-4d16-b9fe-9876f0433dd6,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/6ac3dccf-8152-45d4-b6de-49dbd080bf6d,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/393b3517-f773-4340-838f-57262133362f,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/82577a04-b6b1-4356-962e-2f352d0007ff,RemoteDisconnected('Remote end closed connection without response'),8
+POST,/api/v1/preserveservice/preserve,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/preserveservice/preserve'),577
+GET,/api/v1/contactservice/contacts/account/81dcd764-0d97-4b56-baf0-adf637003fda,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/a6194a60-0e02-47ef-9272-611b758b1ae7,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/d630e0b2-6183-44ab-bdd2-d6626ce2134e,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/10372bd6-0550-4317-9683-a0944cb236d7,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/0d33535b-b387-40bd-9dbb-55b2781dcd40,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/adminorderservice/adminorder,"ConnectionResetError(104, 'Connection reset by peer')",4
+GET,/api/v1/contactservice/contacts/account/37035166-7a1a-4483-818d-c3e3625f8485,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/e6e7c598-9232-43a0-85da-f038ab96a779,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c1739378-af81-409a-852e-6a563a868764,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/c617b7a9-18fb-4793-8016-1bb3b7914a84,RemoteDisconnected('Remote end closed connection without response'),20
+GET,/api/v1/contactservice/contacts/account/99c26067-e68b-40e5-a16a-de4a29d3d839,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/7facd8f5-cbd7-4534-a074-28de031a09d3,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/de97575c-4e4c-4726-92da-d9f68749b50d,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/8661afd9-450b-46ea-8f0d-e2ad72073a62,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/df59eb04-2b75-4ca6-8ae7-0c6c7fcc1a44,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/87f8a3b7-d75a-4f76-9d99-04c2ffad86f0,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/411051cd-f25c-4267-95b4-8878f2669f3a,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/1a95b867-97cb-4781-a0ff-68e674ff6b70,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/c9fd9cfd-9cf3-4865-b3b9-663db2c4e650,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/6f7430ab-5bf3-4d48-a294-48dbe862bba0,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/660db151-ef62-43c1-aa17-fa6741198f1b,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/cb52ffd3-06bf-4656-b1f5-aba4bf176147,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/95e03e70-2df5-49f6-86f5-3faaa668d7bb,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/b44281fd-2fcf-4ae2-b9b9-c14116ea8835,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/aec5c030-b8bd-43df-bd22-12b0cd5892b4,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/0d663585-e7b5-47df-9e3d-135fa99df4ae,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/76e2f1c6-d37c-4eed-8b08-06b2e4c07e18,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/d6091bc2-bcc1-41e5-84d8-37188694398a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/e5633210-9659-4fe9-b96d-6daf97682917,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/01547e36-e3f4-48fd-a20b-5c27a1a2cbbd,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/a32efa0a-5000-45d5-9706-41943190b340,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/e03d7b6c-6248-49fe-a7ab-4d754fb03bdd,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/2456a76a-8799-4df7-9d12-50a78fc40cb1,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/21ab2cf0-8cd1-43ae-8e66-b984355221f8,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-09,"ConnectionResetError(104, 'Connection reset by peer')",103
+GET,/api/v1/contactservice/contacts/account/cec5cace-9832-4470-8451-547483851780,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/efdc15e6-e395-40d9-b9de-cc1fc1f4d87d,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/64f23226-7d54-4f00-819e-19361b34a9d8,RemoteDisconnected('Remote end closed connection without response'),13
+GET,/api/v1/contactservice/contacts/account/fa37917c-729d-4c6b-9b3e-56233d857887,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/e4128579-1a76-4bbe-820f-0d505981dfa2,RemoteDisconnected('Remote end closed connection without response'),14
+GET,/api/v1/contactservice/contacts/account/17e4ef1f-4c78-4050-b876-714707349cf4,RemoteDisconnected('Remote end closed connection without response'),13
+GET,/api/v1/contactservice/contacts/account/f5a890fa-dbb4-49c5-bc7b-c3f855fbc233,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/72b8ca55-e1e8-4f5e-ba45-598eeb3e5806,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/e1e6d68d-83ed-4fe4-aaf3-a778bbb77eeb,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/29eb72d7-2aba-49ed-9891-963932950567,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/,RemoteDisconnected('Remote end closed connection without response'),2132
+GET,/adminlogin.html,"ConnectionResetError(104, 'Connection reset by peer')",73
+GET,/api/v1/contactservice/contacts/account/20aafbd9-0b0c-48ef-80ed-69bed075cb72,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/7ea3b2c0-3380-43b5-add7-1245e76040c6,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/88f8260c-0253-43b0-891a-bb2d997910d4,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/,HTTPError('403 Client Error:  for url: /api/v1/contactservice/contacts/account/'),194
+GET,/api/v1/contactservice/contacts/account/b4e71df3-eeeb-4cf3-8b10-1a948cdfdb45,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/31b8476c-1f8e-4c0e-a1fa-ce1773ac6759,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/86a92b99-d4d7-4558-87f4-a09a407a954d,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/fa89261b-2b26-4db9-b2ef-db214fcd71d6,RemoteDisconnected('Remote end closed connection without response'),15
+GET,/api/v1/contactservice/contacts/account/6f164b0f-2eab-439e-9d11-2f7f57137ba1,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/87d089ab-757c-452e-8903-9540fb2a2781,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/7f61899d-5710-4a4b-a569-a8112cde6570,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/97346fa1-141d-4c81-953a-2f0d1620762e,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/6f46dbe6-e181-4744-a77c-34aa384b010c,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/b14f0d9f-8308-4e72-9482-38b7ac560823,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/baf6653c-ae3e-4228-8226-d10eb6faac04,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/58e2f554-6df1-4301-8857-20c2c3966bd5,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/2c951916-f9bd-4690-95d0-2267b3d630f6,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/335fcce2-b126-46f5-af16-763fa040c64e,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/9373fcc0-300a-4d92-b7d6-ba1c5e32551c,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/1b8b3836-e197-46fb-8dca-545ea5bc0992,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/f3d45bac-20fc-43c1-b21c-c2c2e491ec11,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/7f719b51-0528-415b-a380-bb00cd6f1872,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/39a6a9f1-d3b4-4a50-94b9-b679196cdd67,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/adminorderservice/adminorder,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/adminorderservice/adminorder'),414
+GET,/api/v1/contactservice/contacts/account/20f601c6-10e5-4ca2-9258-5a5b93bca6bc,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/093efd42-70e3-428a-8bfa-a36fa1d26c57,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/cbd95879-e368-47af-813e-51fd2b62c00a,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/f40c5b3b-da46-43d9-ae6d-1762e61e097a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/7b175ffb-b744-4bfd-84fc-0683ee5d091b,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/verifycode/generate,"ConnectionResetError(104, 'Connection reset by peer')",150
+GET,/api/v1/contactservice/contacts/account/e717d5a4-0b7e-469f-85cc-080fd58afc1e,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/40aab6a4-8ea9-4b8c-a7a0-fba023bf87f5,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/d111b4b5-2859-4539-b290-82b4a88f9b86,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/993d60d4-da8e-452b-8114-3d22933f715f,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/daae42d2-430d-443c-83d3-8a7fdff63fc7,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/adminuserservice/users,"ConnectionResetError(104, 'Connection reset by peer')",9
+GET,/api/v1/contactservice/contacts/account/e2c4ec62-15a7-4a4a-838b-daa068a6ae81,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/35709967-4684-41c3-90dc-54d333a8eec8,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/982e8449-14ac-4fbe-b93c-bf6e035e6168,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/fa08e880-9ee0-468f-94d6-3106889898c0,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/8c4ac787-797f-4bb2-b70d-bd012eab7fcd,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/593b9bf5-ecf7-4cae-af9e-8e44cdaeac23,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/,"ConnectionResetError(104, 'Connection reset by peer')",34
+GET,/api/v1/contactservice/contacts/account/84222319-e91d-4a97-9647-9a686dcdb01b,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/277a443b-fed2-4a8b-89a6-2c17d45f7a4d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/db37fb5b-3383-45e2-a9a4-3f34429fc520,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/87ed4190-bcdc-46ad-91ef-565a5edc27dc,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/40b3b84b-d52f-4f92-84d4-61c1e3818ecf,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/3b10584c-f079-4e80-b672-d77a0610664f,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/be81b624-df86-458e-8a70-7332a32e311c,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/0d5de71a-b638-4bc5-babb-23ffa2233de1,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/index.html,RemoteDisconnected('Remote end closed connection without response'),5196
+GET,/api/v1/contactservice/contacts/account/aea5e1dc-d4df-4b00-b5e6-c30c70855706,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/318e6cda-6b09-4ff5-b44a-5ea5c2111c27,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/0711fa0d-5916-4a18-a28d-656abc1066f8,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/81b92f77-84bd-4e74-9379-d920bbce9710,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/1b46d1f7-e92d-4a17-9748-321f57ffa920,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/453cef2b-a71e-47b9-88de-77eb577bb650,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/8320ff95-0b52-4a75-9682-10058dddd103,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/1de6bdc4-7e98-4c23-bd31-0a816619cf66,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/ad669c93-3263-4f2e-9c43-06b9a0ce958e,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/f87cf3f6-1998-4a25-84eb-4f032fa0ea73,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/c335e0ea-aca6-4a03-b989-db9cffa90af3,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/757f56d9-30b3-430c-b0b9-93c806a8f738,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/6f164b0f-2eab-439e-9d11-2f7f57137ba1,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/4b8cfdbf-dfc3-4b7d-a63a-4cbabd65c458,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/2a9fceba-9571-4774-89fe-7370b1f73df4,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/a7ad2f03-7119-4abd-a2ec-bc4451c36a25,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/cb7de532-ba2d-42f3-92cd-bc9bd08f6262,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/232a0017-4b8c-4d32-93ba-0c2af0cb1af4,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/8d3bd604-400a-4800-83a0-7063c739d3ea,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/cfca1a5a-c852-4782-94a1-3436557b0c74,RemoteDisconnected('Remote end closed connection without response'),3
+POST,/api/v1/adminuserservice/users,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/7b259d2c-6682-4ebc-8da6-4c5c85cf68e2,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/f7acf2a0-931b-417e-9846-b39e65ca9171,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/3b10584c-f079-4e80-b672-d77a0610664f,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/5aa98d0c-09e4-4268-8489-b0e49adc27b1,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",65
+GET,/api/v1/contactservice/contacts/account/de86978f-5d3a-4ad3-8e57-4dbd8abfe12e,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/433c9ce6-fff1-46a4-8a85-907c1f1e247d,RemoteDisconnected('Remote end closed connection without response'),7
+POST,/api/v1/preserveservice/preserve,RemoteDisconnected('Remote end closed connection without response'),4700
+GET,/api/v1/contactservice/contacts/account/63764314-229c-467b-ac96-0250396b51b7,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/329abcda-4a8b-4299-8044-ca3e3d74548d,RemoteDisconnected('Remote end closed connection without response'),4
+POST,/api/v1/preserveservice/preserve,"ConnectionResetError(104, 'Connection reset by peer')",74
+GET,/api/v1/contactservice/contacts/account/bb748178-6f0d-4819-887b-76759736a05b,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/318e6cda-6b09-4ff5-b44a-5ea5c2111c27,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/c1470433-37c7-4ba0-b988-d89e77026c03,RemoteDisconnected('Remote end closed connection without response'),4
+POST,/api/v1/users/login,RemoteDisconnected('Remote end closed connection without response'),10356
+GET,/api/v1/contactservice/contacts/account/64f23226-7d54-4f00-819e-19361b34a9d8,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/4d2a46c7-71cb-4cf1-b5bb-b68406d9da6f,"ConnectionResetError(104, 'Connection reset by peer')",8
+GET,/api/v1/contactservice/contacts/account/e534d625-0189-4c17-b23f-2d2dd6af52ff,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/1944bca7-fd5e-492c-8b7b-7348bcea1194,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/65434a99-21b1-4a85-8666-f5033b60c53e,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/a968e79b-beea-452b-b7d3-27216514b631,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/2265dcd5-47a3-438d-a17e-3ce9034c0be7,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/ca2df6bb-d208-4f67-8bb5-45914dd7a3a3,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/d6b052cd-60be-44e2-8209-c5ed22be11db,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/8feea7a7-19cd-4d36-a51b-603049edf33c,RemoteDisconnected('Remote end closed connection without response'),13
+GET,/api/v1/contactservice/contacts/account/55d0cd83-49da-4bbf-a21d-ab8cbd8e69c8,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/f84907d2-b3a3-4841-bed7-9078b5aa885a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/8684d03f-3be6-4c4c-b7b7-842cc7903980,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c7e6d2c8-1658-4351-913c-8886e7c15cba,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/b7ef277f-b6bc-4e1b-9ed8-033d9b3bee16,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/0dd15278-bb91-468e-b00d-cf9033bcdb2c,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/01547e36-e3f4-48fd-a20b-5c27a1a2cbbd,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/3d4f3447-5160-4447-a1ed-07cd9777c052,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/d9553ec9-4433-4445-ae0d-2eb40fceefcd,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/5d5ec3d2-ea0a-4f5e-99ad-7dc689d87b2d,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/6ba89785-63a7-4c92-96ec-d61670c9f29b,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/c1d3222b-3e34-4539-bf60-aa7a7bec5ae4,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/30dea99b-424b-4476-bc29-1fd530601257,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/adf0cac1-bc00-4c06-a08b-2005483856df,RemoteDisconnected('Remote end closed connection without response'),15
+GET,/api/v1/contactservice/contacts/account/48acdb8a-4c68-4671-9365-24a5b79e1220,RemoteDisconnected('Remote end closed connection without response'),17
+GET,/api/v1/contactservice/contacts/account/311903cb-c728-4112-9fd2-c1b307258cd7,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/1bf409e8-2507-4769-b1c0-c4dbf4598e3c,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/629599fd-c369-4b21-81a3-d12c6c9c9411,RemoteDisconnected('Remote end closed connection without response'),4
+POST,/api/v1/adminuserservice/users,RemoteDisconnected('Remote end closed connection without response'),40
+GET,/api/v1/contactservice/contacts/account/d07cfafc-8b74-497b-8c30-ebe2d37c3ba0,RemoteDisconnected('Remote end closed connection without response'),17
+GET,/api/v1/contactservice/contacts/account/ece3e748-8ae7-499f-bd3b-958f28d808aa,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/79de381c-91a7-40d2-8951-def1cd4ad881,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/4d2fa0dd-addd-4da6-9191-b5b35054ed3c,RemoteDisconnected('Remote end closed connection without response'),13
+GET,/api/v1/contactservice/contacts/account/a906a05a-ef7d-4b0d-9db7-743ba14e93f0,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/fa1c77a6-a7e8-46c3-b311-c6d3cc6a765e,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/0e773c7e-cb55-4ea5-841d-456995a17494,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/0fbf905a-2c93-4f2f-9537-801e8e909141,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/14b70a8c-eb58-4e0b-8c69-df1e579592ae,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/edce12c5-cc3b-41ea-a3fe-67c47fb1bbe3,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/fd8662f8-15e3-496b-bd2b-e121b19a88ce,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/14e05486-4458-4c14-89c2-66153dd6733d,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/426eb67c-34dc-4949-b61c-0255f8a54a28,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/4436d36d-0cdc-463a-bde8-dfdead925165,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/6e625d6c-fcad-4e1e-afb7-81c13acf2fbd,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/foodservice/foods/2024-08-09/Shang%20Hai/Su%20Zhou/D1345,RemoteDisconnected('Remote end closed connection without response'),4879
+GET,/api/v1/contactservice/contacts/account/0b00a1ff-1656-4c13-9dcf-331731712b69,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/81dcd764-0d97-4b56-baf0-adf637003fda,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/foodservice/foods/2024-08-09/Shang%20Hai/Su%20Zhou/D1345,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/foodservice/foods/2024-08-09/Shang%20Hai/Su%20Zhou/D1345'),188
+GET,/api/v1/contactservice/contacts/account/b44281fd-2fcf-4ae2-b9b9-c14116ea8835,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/9d56d15d-0787-4120-8c47-32542d01f2ae,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/3b007cf0-247f-47ae-9f45-e5b7400ccc09,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/feeaec13-fce5-4a42-b005-5439404c5c2a,RemoteDisconnected('Remote end closed connection without response'),14
+GET,/api/v1/contactservice/contacts/account/4086c7d4-e597-4a28-81e9-e3c1890b8f8f,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/93541aef-c43e-4ea7-b12c-3a616830dbdd,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/29eb72d7-2aba-49ed-9891-963932950567,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/e48cc900-61f7-4d9b-a6ed-c38316794a38,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/08be29d9-7991-4300-b468-92fb0de6a16a,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/b50cf506-dbc4-46d2-acf1-2a6454a1f66a,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/assuranceservice/assurances/types,HTTPError('403 Client Error:  for url: /api/v1/assuranceservice/assurances/types'),334
+GET,/api/v1/contactservice/contacts/account/e54bf652-782c-49ef-a339-9bc9795ad76d,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/2abe17c4-e751-4721-8511-65d23937a15d,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/6a4c06b6-2352-4f6e-bc32-c88260acb96b,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/1a0a7494-a394-4e7f-af58-cf4e40581554,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/6a8d5808-a123-494c-8c4c-38a7ca83c7e2,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/ecc4f83e-634d-4bbb-b6df-98592e62db21,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/f60a9ebc-ce56-49f8-8379-b57fcf319512,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/d769a5ac-e63a-442a-bc6d-db4dd418d883,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/abed88a4-d377-44bf-ade0-fed9131fa339,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/e97cad90-b85f-4fee-81a1-bf506394ef28,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/client_login.html,"ConnectionResetError(104, 'Connection reset by peer')",79
+GET,/api/v1/contactservice/contacts/account/d5757319-5665-428f-a633-ba5e642cd2ad,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/ae169057-d443-42ad-9576-5da71f27355c,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/614bee4c-7da0-40c2-b801-a746a9a9549c,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/d60e7ed1-717d-42dc-916f-8716c6006da0,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/9198e0d3-2743-40f7-8858-cb7914ac6563,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/05dc8d32-307b-4f96-828e-60cca092f242,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/5aa98d0c-09e4-4268-8489-b0e49adc27b1,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/d5b41332-90d7-4f58-ace2-a8abdd8ce298,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/72a9decc-0425-4651-a871-8737df8c4b52,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/5cb46e40-c5e3-4734-ae42-8cc361c90b46,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/84720fa6-7b04-4779-bc73-7a5095182978,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/9d58a490-d64a-4a12-8e69-673b2ca3ec8b,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/acbf9670-9fd5-4c2f-9bc3-ccd730446a19,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/cce51d70-0643-4af6-b283-9fc1461b4b4d,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/5ab7d6b2-fb9d-4fd1-a7fc-b068e1fc7c4e,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/admin_user.html,RemoteDisconnected('Remote end closed connection without response'),44
+GET,/api/v1/contactservice/contacts/account/313a3067-7e15-4a74-a6ff-e0aa4df87ef2,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/39a2af05-0189-4672-94e2-05da6463f6f8,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/f4ab29b6-0f30-493d-beb0-dc130645c685,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/dee67cc3-2104-4f81-a59f-1afc5445218f,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/433c9ce6-fff1-46a4-8a85-907c1f1e247d,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/256f3254-9303-45a8-9a41-9858c95223fb,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/7b570d30-bfdb-464a-b088-fe660cdf5bdf,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/a6635bdb-95c4-4ab8-8865-b86e7035f6db,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/4228cd25-6e56-40b8-865b-78bf569e808e,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/084f766e-8c31-4757-939c-cd0576ceff05,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/ae2d0c1f-7831-4477-b01b-1c3e2cddc44c,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/4b8a3aad-f705-459a-8baa-eb50de35ec70,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/ec46e478-24c9-4ef2-875f-a8697adb72c2,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/a6194a60-0e02-47ef-9272-611b758b1ae7,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/0a68fc64-0b61-428d-ae04-92b539a9444b,RemoteDisconnected('Remote end closed connection without response'),4
+POST,/api/v1/travelservice/trips/left,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/travelservice/trips/left'),446
+GET,/api/v1/contactservice/contacts/account/cc1ab78b-8a26-413e-ad5f-d8403aaad6b2,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/72e2d1aa-38b2-4731-a259-c0c4272e00ff,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/f40c5b3b-da46-43d9-ae6d-1762e61e097a,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/40653ea5-1115-4cf5-84a6-1992e138246c,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/d853a0f9-2a70-46a9-8651-55d9447be706,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/,HTTPError('500 Server Error:  for url: /api/v1/contactservice/contacts/account/'),109
+GET,/api/v1/contactservice/contacts/account/35709967-4684-41c3-90dc-54d333a8eec8,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/1af49b44-aad8-4e47-aead-c1476fe44115,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/62ffd7c8-9fec-42c9-a857-cadad7a5171d,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/14c8c872-55ea-4fbc-8e14-181c13292323,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/adminuserservice/users,RemoteDisconnected('Remote end closed connection without response'),537
+GET,/api/v1/contactservice/contacts/account/8f92838b-a35a-422e-8df7-130c60c974fe,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/55abd8ff-4b75-4f8c-9180-184e394d3cb7,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/index.html,"ConnectionResetError(104, 'Connection reset by peer')",73
+GET,/api/v1/contactservice/contacts/account/f432ec38-ac32-4b84-b9f1-15283d8ee177,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/1b46d1f7-e92d-4a17-9748-321f57ffa920,RemoteDisconnected('Remote end closed connection without response'),16
+GET,/api/v1/contactservice/contacts/account/1824bcaa-bb3d-4bd7-b7c8-ee50520c96a0,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/a9207e13-ebe1-48be-843c-e99a797bb1ef,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/a4bccc63-8646-48d0-a905-3feae2932841,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/03961773-8922-453a-8078-640b7e467ed2,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/4108e756-2c25-475e-8074-696fc7e25e11,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/a9cd6999-9bbc-491f-9dcf-e15455d6a120,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/b74a998b-3bd0-48da-9662-40d1e4a678dc,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/edbc2510-297a-48ea-955b-e2a672276b86,RemoteDisconnected('Remote end closed connection without response'),14
+GET,/api/v1/contactservice/contacts/account/d5b41332-90d7-4f58-ace2-a8abdd8ce298,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/d9553ec9-4433-4445-ae0d-2eb40fceefcd,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/57809300-7282-456b-a96b-ea5a137ef23f,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/d8e66aba-085d-4d9d-98af-ccfc5d5c1bef,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/fa9d2c80-4c75-4a7b-a8fe-02c25ac19772,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/14b70a8c-eb58-4e0b-8c69-df1e579592ae,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/efcf9cd0-3040-4918-9342-b2d0bcb6c3c9,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/a339a8d6-6615-4319-a1f3-bbe3ddfc87c0,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/1af49b44-aad8-4e47-aead-c1476fe44115,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/7a3c6891-0f1b-4b22-9a2d-ac843722e6b7,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/b55e8546-bb8b-4ff2-b0ba-4b15cf9b0dfa,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/426eb67c-34dc-4949-b61c-0255f8a54a28,"ConnectionResetError(104, 'Connection reset by peer')",1
+POST,/api/v1/users/login,"ConnectionResetError(104, 'Connection reset by peer')",143
+GET,/api/v1/contactservice/contacts/account/06b05e22-3165-4a18-bca9-3411fdb23f5d,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/4952d722-5a2c-4804-a46f-b2c07b324719,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/36fd6349-50da-48af-906b-633791cf703d,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/3e93b79e-2676-4e3a-a397-70d12cd183ca,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/1a0a7494-a394-4e7f-af58-cf4e40581554,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/bb6e40e2-612c-484a-a206-1356ebd2efce,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c3dd4ed5-cf2e-48ac-a7d2-21e00f694c2d,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/c30465a8-6459-48b8-8b3b-4ce6d8a2595f,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/e76c7503-f876-4019-a3b6-7a78f0f0d5a0,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/4b54d77b-4df3-440f-9054-e519537bf7c6,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/6b48bcb5-4edb-40ff-ab93-bbec4254ee5a,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/fe4ff925-ebd6-41d5-ba7f-3fca3a098ca2,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/0cff02cd-d1ec-4b1f-b2e3-f74f511ec2e4,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/contactservice/contacts/account/f86891b8-ea50-4626-bbc5-f6821ba48f84,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/215af093-98f2-4610-aaed-d3b3ffc3a886,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/verifycode/generate,RemoteDisconnected('Remote end closed connection without response'),10475
+GET,/api/v1/contactservice/contacts/account/846576be-8008-4314-a096-55ad93e98cd9,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/2d9d5ed0-ecb0-4107-9edc-2898d769058b,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/c617b7a9-18fb-4793-8016-1bb3b7914a84,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-09,RemoteDisconnected('Remote end closed connection without response'),4793
+GET,/api/v1/contactservice/contacts/account/db8c60ff-f5d5-40f1-8885-1bef0e771885,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/c73ac802-e12e-4f0e-8af1-c10b5161bc91,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/8e4173fd-2f8b-41e1-bafb-0decbeaa89ca,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/b138e409-241a-4ba0-9393-91fd09efbe81,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/5e91e2e5-75f3-4f26-ac82-36988ded6d50,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/1575136e-90de-407e-91af-3cddcc6e1578,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/e8ee4fe7-79a8-4423-be2b-25571fd1587d,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/86b6f1ad-e5ad-476f-a8f5-f35de73af333,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/e93b2610-b1c9-4df6-a3bf-12a19498509d,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/d9b24739-4e11-4cd8-9f9f-91fad37f682e,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/42bd7945-ddf9-4fd9-9aa4-7bb8e6b9b6ef,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/1b9f8ff9-4ef6-4ed7-a9d2-50c3a587b2ba,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/1f15a4a7-1501-4766-9540-3431cac33285,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/34d77117-4321-443a-8f52-d749bd242f7f,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/2892e9e6-eef4-4249-8f29-4111ab87e957,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/b2cc0d98-726b-4015-ab7d-ccc7d949c8ea,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/b662fc1e-6ba7-4141-aca0-e40d0b32766d,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/4ff54282-46fc-42c2-a28e-22069a07577f,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/4972cc96-606e-41f1-8877-9a6f8581c2bf,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/bc22aa30-9184-4a7e-8e14-a89804de3e89,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/6b48bcb5-4edb-40ff-ab93-bbec4254ee5a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),4899
+GET,/api/v1/contactservice/contacts/account/0f525692-60ba-423c-be31-4a52782e44da,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/1ef1e566-cdb3-4c4d-b5b6-14917d2b95b5,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/3e94da1d-2ba2-4fdb-90d4-ed686f64cbf3,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/e48cc900-61f7-4d9b-a6ed-c38316794a38,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/924752db-0a1a-4b54-889d-56825733ff5d,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/c5a99586-51b2-4a44-a8b4-391708980347,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/d07cfafc-8b74-497b-8c30-ebe2d37c3ba0,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/5834c1cd-4e4f-4987-b923-c2b59d1c0235,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/a32efa0a-5000-45d5-9706-41943190b340,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/83607a9d-b3d9-4c74-89c2-a95377e1673a,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/5c94670c-bfa2-443b-8e5c-141cfe0788de,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/87d4a123-022f-47c8-b825-c6b40fcef084,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/b8dca703-f701-48c8-9c64-abf8a5625674,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/8cd0f204-530e-4fbc-9e22-e63591b42300,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/7bd7e90e-0ab8-4b0d-a289-b568f2d474d9,RemoteDisconnected('Remote end closed connection without response'),13
+GET,/api/v1/contactservice/contacts/account/3e93b79e-2676-4e3a-a397-70d12cd183ca,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/98414e4a-dfcb-4330-a127-73d5da961bf4,RemoteDisconnected('Remote end closed connection without response'),10
+GET,/api/v1/contactservice/contacts/account/05dc8d32-307b-4f96-828e-60cca092f242,"ConnectionResetError(104, 'Connection reset by peer')",1
+POST,/api/v1/travelservice/trips/left,"ConnectionResetError(104, 'Connection reset by peer')",81
+GET,/api/v1/adminorderservice/adminorder,RemoteDisconnected('Remote end closed connection without response'),321
+GET,/api/v1/contactservice/contacts/account/df44039e-d68d-4311-8f90-32248d73bb5d,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/7f6a275b-bcb2-41a8-9966-97bd3f173b4c,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/0c857af6-954e-4575-893e-7719148455fb,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/233e6e46-4976-4492-9f89-b6983248a930,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/1f3d6364-1577-4bde-858f-76b53ce6fe8c,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/15c7f518-6df4-43ed-901c-e5b1087c7e7a,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/d576021b-2a6d-46ee-9c9f-c9d40104fc60,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/2326740d-e1dd-4002-b4e1-807d3ce14d8e,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/8cc50c32-6adf-4799-b171-1058fb97f991,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/83607a9d-b3d9-4c74-89c2-a95377e1673a,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/cb065288-ef08-4bc6-a0f6-cc7547dd2fc4,RemoteDisconnected('Remote end closed connection without response'),17
+GET,/api/v1/contactservice/contacts/account/21ab2cf0-8cd1-43ae-8e66-b984355221f8,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/6dfdbdf1-1352-4081-a5f4-0e75a9e6e4cc,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/a486c37a-4841-4ecf-91f9-5c1ac5f6b594,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/caeac745-e433-4a2f-8bca-6da53e4b5a0c,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/caeac745-e433-4a2f-8bca-6da53e4b5a0c,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/6656abb6-86df-47aa-97a5-a7dc82615bd7,RemoteDisconnected('Remote end closed connection without response'),18
+GET,/api/v1/contactservice/contacts/account/86bdc38a-a668-427f-a09e-98889cb870dd,RemoteDisconnected('Remote end closed connection without response'),3
+POST,/api/v1/contactservice/contacts,RemoteDisconnected('Remote end closed connection without response'),41
+GET,/api/v1/contactservice/contacts/account/9be279ce-1179-48ce-95df-1ed13afe217f,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/84eb17f5-8e00-4e7b-b57b-770f89d6e78a,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/contactservice/contacts/account/ade05cfb-e978-4549-99d8-569fe3aafc23,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/51576c38-0198-4aa2-a98e-7a0a4e8277cb,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/0692ed75-f16a-43d6-b54f-4225a926740d,RemoteDisconnected('Remote end closed connection without response'),12
+GET,/api/v1/contactservice/contacts/account/f84907d2-b3a3-4841-bed7-9078b5aa885a,RemoteDisconnected('Remote end closed connection without response'),8
+GET,/api/v1/contactservice/contacts/account/3b007cf0-247f-47ae-9f45-e5b7400ccc09,RemoteDisconnected('Remote end closed connection without response'),16
+GET,/api/v1/contactservice/contacts/account/236524cc-ed0d-45b5-8cd0-e8a2353fb4e1,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/api/v1/contactservice/contacts/account/c617295a-c7b5-4ccf-8bfa-0e6e94881fc3,RemoteDisconnected('Remote end closed connection without response'),6

@@ -1,0 +1,3 @@
+Method,Name,Error,Occurrences
+POST,/api/v1/users/login,HTTPError('502 Server Error: Bad Gateway for url: /api/v1/users/login'),13799
+POST,/api/v1/travelservice/trips/left,HTTPError('502 Server Error: Bad Gateway for url: /api/v1/travelservice/trips/left'),38080

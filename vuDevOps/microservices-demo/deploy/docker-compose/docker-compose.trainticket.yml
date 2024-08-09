@@ -44,13 +44,19 @@ services:
     build: ts-auth-service
     image: ${IMG_REPO}/ts-auth-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 12340:12340
     networks:
       - my-network
 
   ts-auth-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -58,13 +64,19 @@ services:
     build: ts-user-service
     image: ${IMG_REPO}/ts-user-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 12342:12342
     networks:
       - my-network
 
   ts-user-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -72,13 +84,19 @@ services:
     build: ts-verification-code-service
     image: ${IMG_REPO}/ts-verification-code-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '512M'
+        reservations:
+          memory: '256M'
     ports:
       - 15678:15678
     networks:
       - my-network
 
   ts-account-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -94,7 +112,7 @@ services:
       - my-network
 
   ts-route-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -110,7 +128,7 @@ services:
       - my-network
 
   ts-contacts-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -118,6 +136,12 @@ services:
     build: ts-order-service
     image: ${IMG_REPO}/ts-order-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 12031:12031
     volumes:
@@ -126,7 +150,7 @@ services:
       - my-network
 
   ts-order-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -142,7 +166,7 @@ services:
       - my-network
 
   ts-order-other-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -158,7 +182,7 @@ services:
       - my-network
 
   ts-config-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -174,7 +198,7 @@ services:
       - my-network
 
   ts-station-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -190,7 +214,7 @@ services:
       - my-network
 
   ts-train-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -198,6 +222,12 @@ services:
     build: ts-travel-service
     image: ${IMG_REPO}/ts-travel-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 12346:12346
     volumes:
@@ -206,7 +236,7 @@ services:
       - my-network
 
   ts-travel-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -222,7 +252,7 @@ services:
       - my-network
 
   ts-travel2-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -230,6 +260,12 @@ services:
     build: ts-preserve-service
     image: ${IMG_REPO}/ts-preserve-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 14568:14568
     volumes:
@@ -282,7 +318,7 @@ services:
       - my-network
 
   ts-price-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -303,6 +339,12 @@ services:
     build: ts-security-service
     image: ${IMG_REPO}/ts-security-service:${IMG_TAG}
     restart: always
+    deploy:
+      resources:
+        limits:
+          memory: '1G'
+        reservations:
+          memory: '512M'
     ports:
       - 11188:11188
     volumes:
@@ -311,7 +353,7 @@ services:
       - my-network
 
   ts-security-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -327,7 +369,7 @@ services:
       - my-network
 
   ts-inside-payment-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -354,7 +396,7 @@ services:
       - my-network
 
   ts-payment-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -370,7 +412,7 @@ services:
       - my-network
 
   ts-rebook-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -397,7 +439,7 @@ services:
       - my-network
 
   ts-assurance-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -433,7 +475,7 @@ services:
       - my-network
 
   ts-ticket-office-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -447,7 +489,7 @@ services:
       - my-network
 
   ts-news-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -459,6 +501,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     networks:
       - my-network
+    command: [ "--max_connections=10000" ]
  
   ts-voucher-service:
     build: ts-voucher-service
@@ -485,7 +528,7 @@ services:
       - my-network
 
   ts-food-map-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -521,7 +564,7 @@ services:
       - my-network
 
   ts-consign-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
@@ -537,12 +580,12 @@ services:
       - my-network
 
   ts-consign-price-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
   ts-food-mongo:
-    image: mongo:2.2
+    image: mongo:3
     networks:
       - my-network
 
