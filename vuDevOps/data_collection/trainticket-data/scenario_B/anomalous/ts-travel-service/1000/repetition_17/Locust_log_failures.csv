@@ -1,0 +1,11 @@
+Method,Name,Error,Occurrences
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-21,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/40b1eab7-a846-4ab8-95b9-8d825cca1961,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/44647434-7b27-476e-b067-17a07db2fb31,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/d2d60d72-4ac7-486f-8730-7942bfbf2ff3,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/8798e260-d506-4249-89fb-69d6cdf928aa,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),4
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5235
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/api/v1/contactservice/contacts/account/aacb9396-ff3c-4987-b450-a4845c47ca5f,RemoteDisconnected('Remote end closed connection without response'),1

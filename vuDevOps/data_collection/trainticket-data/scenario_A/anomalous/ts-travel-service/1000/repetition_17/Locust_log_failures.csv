@@ -1,0 +1,5 @@
+Method,Name,Error,Occurrences
+GET,/index.html,RemoteDisconnected('Remote end closed connection without response'),24
+GET,/index.html,"ConnectionResetError(104, 'Connection reset by peer')",10
+GET,/api/v1/adminuserservice/users,"ChunkedEncodingError(ProtocolError(""Connection broken: ConnectionResetError(104, 'Connection reset by peer')"", ConnectionResetError(104, 'Connection reset by peer')))",2
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),3

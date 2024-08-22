@@ -1,0 +1,16 @@
+Method,Name,Error,Occurrences
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),2
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-21,RemoteDisconnected('Remote end closed connection without response'),7
+GET,/api/v1/contactservice/contacts/account/c0e60fd3-5b28-42cb-90e9-55bed720fede,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/adminlogin.html,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/543d6969-fe45-4f29-8686-8b29546ddc98,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/2817bec6-6dc6-4d5b-8cf4-2e901010f2e0,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/245ead0d-0edb-4c09-9c1a-b9fd817a4cc8,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/68223df3-69fc-4d55-b241-c362f76d2bb2,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/9cc3b363-e130-4ccb-9ead-cc2c246a4642,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),7
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5319
+GET,/api/v1/contactservice/contacts/account/e463863f-e557-427d-80e8-efb570c0c723,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-21,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),1

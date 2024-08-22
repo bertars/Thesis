@@ -1,0 +1,17 @@
+Method,Name,Error,Occurrences
+GET,/api/v1/contactservice/contacts/account/d9d14750-1484-478e-8a4c-a07b1e72d2bf,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-20,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),15
+GET,/api/v1/contactservice/contacts/account/8ff6bf79-3af8-41bc-952c-2557019adb69,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/827a4fe3-8d71-4e86-8496-12b1ce7a0f4f,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",3
+GET,/api/v1/contactservice/contacts/account/bc5d4da5-8d84-4598-859c-2d2f2d3ba29a,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),3
+GET,/api/v1/contactservice/contacts/account/aa2e9c4b-7c9a-444a-84e4-08ba374cb6b4,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5209
+GET,/api/v1/contactservice/contacts/account/26e935ab-b9af-41fd-84b3-a15582c0e03e,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/adminuserservice/users,"ChunkedEncodingError(ProtocolError(""Connection broken: ConnectionResetError(104, 'Connection reset by peer')"", ConnectionResetError(104, 'Connection reset by peer')))",1
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/9f2d949b-9548-4083-86a0-8d425e7089d1,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/53fa7a23-197e-47e7-acae-8da9c48e53b0,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-20,"ConnectionResetError(104, 'Connection reset by peer')",4

@@ -1,0 +1,23 @@
+Method,Name,Error,Occurrences
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-16,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/8f01c552-4786-40bc-9e2d-63c3bbbcf413,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/b5ab2f0f-c26e-4a33-9086-c87d75bd9d68,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/667bf82e-41bc-4269-87fa-9863c8fd3946,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/573e64a0-a419-41f4-aa9c-0a332084b65d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/8a88e8c2-73bf-4847-91e5-fec56b1663a2,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-16,RemoteDisconnected('Remote end closed connection without response'),9
+GET,/api/v1/contactservice/contacts/account/7a6beddb-94b3-495f-93fb-e6d0a982314d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/64a6d9fb-20fd-41d0-9277-02b593bc875d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",3
+GET,/api/v1/contactservice/contacts/account/ef04c1a0-0831-4306-9051-ef09c209d656,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/228657d9-3b8a-4327-8c18-7f426ddfc480,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/66ebc0bf-68c7-4ce5-bb11-5e0e98d96192,"ConnectionResetError(104, 'Connection reset by peer')",1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),2
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5245
+GET,/api/v1/contactservice/contacts/account/e72e9599-dfb1-4a77-917b-1580887c5ec5,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/932bc0b0-0a7b-449d-8ed4-db507271e3cc,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/b933e012-79fe-4f42-bbaf-c54d8617394d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),6
+GET,/api/v1/contactservice/contacts/account/dc1f0fa8-43d8-47b9-937b-7755f0b46c06,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/bae23acb-4d6e-4dba-8e77-c12ca55bbbc2,RemoteDisconnected('Remote end closed connection without response'),1

@@ -1,0 +1,4 @@
+Method,Name,Error,Occurrences
+POST,/api/v1/preserveservice/preserve,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/preserveservice/preserve'),68
+GET,/api/v1/adminorderservice/adminorder,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/adminorderservice/adminorder'),79
+POST,/api/v1/travelservice/trips/left,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/travelservice/trips/left'),53

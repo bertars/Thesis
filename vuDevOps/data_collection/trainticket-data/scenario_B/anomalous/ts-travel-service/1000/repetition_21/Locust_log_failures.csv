@@ -1,0 +1,16 @@
+Method,Name,Error,Occurrences
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-16,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/assuranceservice/assurances/types,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/fc223581-7632-4b05-93ff-662420b8e1a4,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/client_ticket_book.html?tripId=D1345&from=Shang%20Hai&to=Su%20Zhou&seatType=2&seat_price=50.0&date=2024-08-16,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/api/v1/contactservice/contacts/account/bee6ac98-87b2-48e7-9f08-2bdd4f240ded,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/contactservice/contacts/account/64063379-a9a6-4e2d-bcda-a7b75da926d8,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/assuranceservice/assurances/types,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/contactservice/contacts/account/e1d19ac4-bd5e-4bc0-b4c3-8c1f4ba0227b,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/890b213e-b798-473d-bf82-9113267fc308,RemoteDisconnected('Remote end closed connection without response'),1
+POST,/api/v1/preserveservice/preserve,HTTPError('400 Client Error:  for url: /api/v1/preserveservice/preserve'),3
+GET,/api/v1/contactservice/contacts/account/9a421d16-3806-4331-a9e4-9e45f72f185b,"ConnectionResetError(104, 'Connection reset by peer')",1
+POST,/api/v1/preserveservice/preserve,HTTPError('500 Server Error:  for url: /api/v1/preserveservice/preserve'),5196
+GET,/api/v1/contactservice/contacts/account/eb76d2fd-dc8b-4bba-ac2d-26b15077286d,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),1
+GET,/api/v1/contactservice/contacts/account/1b627e95-384f-4ecd-b07b-9fb42bf51fb0,RemoteDisconnected('Remote end closed connection without response'),1

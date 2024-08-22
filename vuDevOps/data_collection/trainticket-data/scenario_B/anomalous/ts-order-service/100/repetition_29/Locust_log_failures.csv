@@ -1,0 +1,6 @@
+Method,Name,Error,Occurrences
+POST,/api/v1/travelservice/trips/left,HTTPError('500 Server Error:  for url: /api/v1/travelservice/trips/left'),2
+POST,/api/v1/preserveservice/preserve,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/preserveservice/preserve'),69
+GET,/api/v1/adminorderservice/adminorder,HTTPError('500 Server Error:  for url: /api/v1/adminorderservice/adminorder'),4
+GET,/api/v1/adminorderservice/adminorder,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/adminorderservice/adminorder'),11
+POST,/api/v1/travelservice/trips/left,HTTPError('504 Server Error: Gateway Time-out for url: /api/v1/travelservice/trips/left'),28

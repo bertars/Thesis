@@ -1,0 +1,16 @@
+Method,Name,Error,Occurrences
+POST,/api/v1/travelservice/trips/left,RemoteDisconnected('Remote end closed connection without response'),22
+GET,/client_login.html,RemoteDisconnected('Remote end closed connection without response'),5
+GET,/api/v1/adminorderservice/adminorder,"ConnectionResetError(104, 'Connection reset by peer')",3
+GET,/adminlogin.html,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/api/v1/verifycode/generate,"ConnectionResetError(104, 'Connection reset by peer')",4
+GET,/api/v1/adminuserservice/users,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/index.html,RemoteDisconnected('Remote end closed connection without response'),43
+POST,/api/v1/users/login,RemoteDisconnected('Remote end closed connection without response'),11
+GET,/api/v1/adminuserservice/users,RemoteDisconnected('Remote end closed connection without response'),4
+GET,/index.html,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/verifycode/generate,RemoteDisconnected('Remote end closed connection without response'),27
+POST,/api/v1/travel2service/trips/left,RemoteDisconnected('Remote end closed connection without response'),3
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),3
+POST,/api/v1/travelservice/trips/left,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/api/v1/adminorderservice/adminorder,RemoteDisconnected('Remote end closed connection without response'),4

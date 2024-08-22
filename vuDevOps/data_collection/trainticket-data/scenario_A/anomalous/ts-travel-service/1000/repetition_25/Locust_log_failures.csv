@@ -1,0 +1,3 @@
+Method,Name,Error,Occurrences
+GET,/index.html,RemoteDisconnected('Remote end closed connection without response'),27
+GET,/adminlogin.html,RemoteDisconnected('Remote end closed connection without response'),3
