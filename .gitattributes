@@ -1,3 +1,5 @@
 data_analysis/AD/ts-anomalous_data.csv filter=lfs diff=lfs merge=lfs -text
 data_analysis/AD/ts-combined.csv filter=lfs diff=lfs merge=lfs -text
 data_analysis/AD/ts-converted.csv filter=lfs diff=lfs merge=lfs -text
+data_analysis/AD/ts-ground_truth.csv filter=lfs diff=lfs merge=lfs -text
+data_analysis/AD/ts-normal_data.csv filter=lfs diff=lfs merge=lfs -text
