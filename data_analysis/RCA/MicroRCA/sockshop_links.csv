@@ -1,0 +1,13 @@
+,source,destination,weight
+0,user,user-db,1
+1,carts,carts-db,1
+2,catalogue,catalogue-db,1
+3,orders,orders-db,1
+4,front-end,user,1
+5,orders,user,1
+7,orders,payment,1
+8,front-end,catalogue,1
+9,front-end,orders,1
+10,orders,shipping,1
+11,orders,carts,1
+12,front-end,carts,1

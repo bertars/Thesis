@@ -3,3 +3,6 @@ logs.log
 __pycache__
 .pyc
 .log
+build
+sfr_pyrca.egg-info
+/data_analysis/RCA/PyRCA/pyrca
