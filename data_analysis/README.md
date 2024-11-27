@@ -14,19 +14,30 @@ pip install -r requirements.txt
 pip install pycaret --use-pep517
 ```
 
-# 3 Running the data processing script
+# 3 Running the data analysis
 
-## 3.1 Time-sensitivity Analysis, Energy Usage, and Anomaly Detection 
-This script will convert power metrics into energy consumption, perform the time-sensitivity analysis for 5, 10, 30 and 60 time-window configurations, train the AD models, create the Ground Truth, and lastly, run the previously trained AD models on the anomalous dataset. This script has to be executed for each system in order to generate the results. For this phase, the script has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the script is supposed to be executed for.
-```zsh
-python3 time_analysis_and_AD_execution.py
-```
+## 3.1 Anomaly Detection 
+The Jupyter notebook `AD_execution.ipynb` will convert power metrics into energy consumption, train the AD models, create the Ground Truth, and lastly, run the previously trained AD models on the anomalous dataset. This script has to be executed for each system in order to generate the results. For this phase, the notebook has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the code is supposed to be executed for.
+
 
 ## 3.2 Root cause analysis 
-### 3.2.1 RCD and e-diagnosis
-This script will train and run RCA models RCD and e-diagnosis. For this phase, the script has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the script is supposed to be executed for.
+### 3.2.1 MicroRCA
+The Jupyter notebook `microRCA.ipynb` will run the [MicroRCA](https://github.com/elastisys/MicroRCA) algorithm on the anomalous dataset. For this phase, the notebook has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the code is supposed to be executed for.
 ```zsh
-cd $HOME/Data Analysis/RCA/e-Diagnosis \& RCD-PyRCA
+cd $HOME/data_analysis/RCA/MicroRCA
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+### 3.2.2 RCD and CIRCA
+The Jupyter notebook `pyRCA.ipynb` will train and run RCA models RCD and CIRCA. For this phase, the notebook has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the code is supposed to be executed for. 
+
+The RCD and CIRCA algorithms have been taken from the [PyRCA](https://github.com/zhouruixingzhu/PyRCA) library, so you first would need to go to its repository and download the `pyrca` folder. Then you can do the following:
+```zsh
+cd $HOME/data_analysis/RCA/PyRCA
 python3 -m venv .venv
 
 source .venv/bin/activate
@@ -34,40 +45,23 @@ source .venv/bin/activate
 pip install -r requirements.txt
 pip install .
 ```
-Running the script
-```zsh
-python3 pyRCA.py
-```
 
+### 3.2.3 CausalRCA
+The Jupyter notebook `causalRCA.ipynb` will run the RCA model [CausalRCA](https://github.com/AXinx/CausalRCA_code). For this phase, the notebook has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the code is supposed to be executed for. 
 
-### 3.2.1 MicroRCA
-This script will run the MicroRCA algorithm on the anomalous dataset. For this phase, the script has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the script is supposed to be executed for.
 ```zsh
-cd $HOME/Data Analysis/RCA/MicroRCA
+cd $HOME/data_analysis/RCA/CausalRCA
 python3 -m venv .venv
 
 source .venv/bin/activate
 
 pip install -r requirements.txt
-```
-
-```zsh
-python3 microRCA.py
 ```
 
 # 4 Descriptive Statistics and Plots
-This script will compute per treatment, per time-window, and overall results for the performance metrics Precision, Recall and F-Score for AD algorithms, and PR@1,2,3 as well as MAP for RCA algorithms. Using these results, we export .csv files that reflect the results for the aforementioned scenarios in a table-like format, available in the Experiment Results/Descriptive statistics folder. Additionally, we also export a visual representation of the same metrics using CDF plots, as well as Resource Usage line charts for CPU and Memory, and Histograms for Energy with representative bins for the various time windows available. These plots are available in Experiment Results/Plots section, separated by each system. For this phase, the script has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the script is supposed to be executed for.
-```zsh
-cd $HOME/Data Analysis/Statistics and Plots
-python3 -m venv .venv
+The Jupyter notebook `statistics.ipynb` will compute per treatment and overall results for the performance metrics Precision, Recall and F-Score for AD algorithms, and PR@1,2,3 as well as MAP for RCA algorithms. Using these results, we export .csv files that reflect the results for the aforementioned scenarios in a table-like format, available in the [`data_analysis/Statistics/Descriptive statistics`](https://github.com/bertars/Thesis/tree/main/data_analysis/Statistics/Descriptive%20statistics) folder. For this phase, the notebook has a parameter at the top of the file %SYSTEM%, that can be used to distinguish the system the code is supposed to be executed for.
 
-source .venv/bin/activate
+Additionally, we also export a visual representation of the same metrics using heatmaps. These plots are available in the Descriptive statistics folder, separated by each system and algorithm type. 
 
-pip install -r requirements.txt
-```
-
-```zsh
-python3 statistics_and_plots.py
-```
 
 

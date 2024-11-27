@@ -1,3 +1,3 @@
-for MicroRCA the follwing commands:
+for MicroRCA the following commands:
 
 pip install -r requirements.txt

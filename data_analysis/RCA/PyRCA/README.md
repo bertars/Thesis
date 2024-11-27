@@ -1,4 +1,4 @@
-for PyRCA the follwing commands:
+for PyRCA the following commands:
 
 pip install -r requirements.txt
 pip install .

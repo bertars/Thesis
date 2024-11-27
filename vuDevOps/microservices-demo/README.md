@@ -18,7 +18,7 @@ docker compose -f deploy/docker-compose/docker-compose.cadvisor.yml up -d
 
 ## Access Sock Shop
 
-Once the application is deployed, navigate to http://localhost:8080 to access the Sock Shop home page.
+Once the application is deployed, navigate to http://localhost:9090 to access the Sock Shop home page.
 
 The Prometheus dashboard is available at http://localhost:30000.
 
@@ -36,20 +36,18 @@ docker compose -f deploy/docker-compose/docker-compose.cadvisor.yml down
 ```
 
 
-# UNI-Cloud
+# Train Ticket：A Benchmark Microservice System
 ## Pre-requisites
 - Docker
 - Docker-Compose
 
 ## Deploying UNI-Cloud
-While being within the `microservices-demo` folder, ou can deploy all UNI-Cloud services using the following docker compose commands:
+While being within the `microservices-demo` folder, you can deploy all TrainTicket services using the following docker compose commands:
 ```
-docker compose -f deploy/docker-compose/docker-compose.unicloud.yml up -d
-
-docker compose -f deploy/docker-compose/rabbitmq/docker-compose.yml up -d
+docker compose -f deploy/docker-compose/docker-compose.trainticket.yml --env-file .env up -d
 ```
 ## Deploy monitoring tools
-Additionally, you can deploy monitoring tools such as Prometheus and Grafana, to monitor metrics for UNI-Cloud, using the following command:
+Additionally, you can deploy monitoring tools such as Prometheus and Grafana, to monitor metrics for Train Ticket, using the following command:
 ```
 
 docker compose -f deploy/docker-compose/docker-compose.monitoring.yml up -d
@@ -60,17 +58,17 @@ docker compose -f deploy/docker-compose/docker-compose.cadvisor.yml up -d
 
 ```
 
-## Access UNI-Cloud
+## Access Train Ticket
+
+Once the application is deployed, navigate to http://localhost:8080 to access the Train Ticket home page.
 
 The Prometheus dashboard is available at http://localhost:30000.
 
 The Grafana dashboard is available at http://localhost:30001.
 
-## Removing UNI-Cloud
+## Removing Train Ticket
 ```
-docker compose -f deploy/docker-compose/docker-compose.unicloud.yml down
-
-docker compose -f deploy/docker-compose/rabbitmq/docker-compose.yml down
+docker compose -f deploy/docker-compose/docker-compose.trainticket.yml --env-file .env down
 
 docker compose -f deploy/docker-compose/docker-compose.monitoring.yml down
 

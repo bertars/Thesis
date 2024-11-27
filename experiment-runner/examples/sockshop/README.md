@@ -1,7 +1,7 @@
 
-# Hello World
+# Sockshop
 
-A simple example that just prints on each event. This examples serves as an equivalent of a "Hello World" program.
+This program executes the full experiment for the Sockshop system.
 
 ## Running
 
@@ -13,4 +13,4 @@ python3 experiment-runner/ examples/sockshop/RunnerConfig.py
 
 ## Results
 
-The results are generated in the `examples/sockshop/experiments` folder.
+The data collected during this experiment will be stored in the `vuDevOps/data_collection/sockshop-data` folder.
