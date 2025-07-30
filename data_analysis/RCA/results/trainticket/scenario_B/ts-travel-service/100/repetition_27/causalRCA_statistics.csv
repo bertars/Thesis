@@ -1,4 +1,4 @@
 ,true_positives,false_positives,precision,level
 0,0,1,0.0,level_1
-1,0,1,0.0,level_2
-2,0,1,0.0,level_3
+1,1,0,1.0,level_2
+2,1,0,1.0,level_3
